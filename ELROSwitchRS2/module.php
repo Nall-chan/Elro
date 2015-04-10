@@ -1,6 +1,6 @@
 <?
 
-require_once('../ELROBase/module.php');  // ELROBase Klasse
+require_once('../ELROBase.php');  // ELROBase Klasse
 
 class ELROSwitchRS2 extends ELROBase {
 
