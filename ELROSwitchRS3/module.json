@@ -1,0 +1,11 @@
+{
+    "id": "{7AC6EBE8-8AC9-43F8-930F-0813D10F52C2}",
+    "name": "ELROSwitchRS3",
+    "type": 3,
+    "vendor": "ELRO",
+    "aliases": ["REV Schalter (RS)"],
+    "parentRequirements": ["{E6D7692A-7F4C-441D-827B-64062CFE1C02}"],
+    "childRequirements": [],
+    "implemented": ["{FD7FF32C-331E-4F6B-8BA8-F73982EF5AA7}"],
+    "prefix": "ELRO"
+}

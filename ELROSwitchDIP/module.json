@@ -1,0 +1,11 @@
+{
+    "id": "{49575274-BD5B-4FE1-AF7B-D98F2566BFE0}",
+    "name": "ELROSwitchDIP",
+    "type": 3,
+    "vendor": "ELRO",
+    "aliases": ["ELRO Schalter (DIP)"],
+    "parentRequirements": ["{E6D7692A-7F4C-441D-827B-64062CFE1C02}"],
+    "childRequirements": [],
+    "implemented": ["{FD7FF32C-331E-4F6B-8BA8-F73982EF5AA7}"],
+    "prefix": "ELRO"
+}

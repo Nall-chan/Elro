@@ -1,0 +1,74 @@
+{
+    "elements":
+            [
+                {
+                    "type": "Label",
+                    "label": "Adresse hier einstellen:"
+                },
+                {
+                    "name": "CharAdr",
+                    "type": "Select",
+                    "caption": "Buchstabe",
+                    "options": [
+                        {
+                            "label": "A",
+                            "value": "D5"
+                        },
+                        {
+                            "label": "B",
+                            "value": "75"
+                        },
+                        {
+                            "label": "C",
+                            "value": "5D"
+                        },
+                        {
+                            "label": "D",
+                            "value": "55"
+                        }
+                    ]
+                },
+                {
+                    "name": "ByteAdr",
+                    "type": "Select",
+                    "caption": "Ziffer",
+                    "options": [
+                        {
+                            "label": "1",
+                            "value": "D4"
+                        },
+                        {
+                            "label": "2",
+                            "value": "74"
+                        },
+                        {
+                            "label": "3",
+                            "value": "5C"
+                        }
+                    ]
+                },
+                {
+                    "name": "Repeat",
+                    "type": "Select",
+                    "caption": "Sende-Zyklen",
+                    "options": [
+                        {
+                            "label": "1",
+                            "value": 1
+                        },
+                        {
+                            "label": "2",
+                            "value": 2
+                        },
+                        {
+                            "label": "3",
+                            "value": 3
+                        },
+                        {
+                            "label": "4",
+                            "value": 4
+                        }
+                    ]
+                }
+            ]
+}

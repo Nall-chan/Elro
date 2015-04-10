@@ -1,0 +1,11 @@
+{
+    "id": "{4334935A-A711-45F8-AE9D-FED61A118ABF}",
+    "name": "ELROSwitchRS",
+    "type": 3,
+    "vendor": "ELRO",
+    "aliases": ["AB600", "Intertechno Schalter (RS)"],
+    "parentRequirements": ["{E6D7692A-7F4C-441D-827B-64062CFE1C02}"],
+    "childRequirements": [],
+    "implemented": ["{FD7FF32C-331E-4F6B-8BA8-F73982EF5AA7}"],
+    "prefix": "ELRO"
+}

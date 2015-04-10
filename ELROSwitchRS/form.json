@@ -1,0 +1,174 @@
+{
+    "elements":
+            [
+                {
+                    "type": "Label",
+                    "label": "Adresse hier einstellen:"
+                },
+                {
+                    "name": "CharAdr",
+                    "type": "Select",
+                    "caption": "Buchstabe",
+                    "options": [
+                        {
+                            "label": "A",
+                            "value": "00"
+                        },
+                        {
+                            "label": "B",
+                            "value": "40"
+                        },
+                        {
+                            "label": "C",
+                            "value": "10"
+                        },
+                        {
+                            "label": "D",
+                            "value": "50"
+                        },
+                        {
+                            "label": "E",
+                            "value": "04"
+                        },
+                        {
+                            "label": "F",
+                            "value": "44"
+                        },
+                        {
+                            "label": "G",
+                            "value": "14"
+                        },
+                        {
+                            "label": "H",
+                            "value": "54"
+                        },
+                        {
+                            "label": "I",
+                            "value": "01"
+                        },
+                        {
+                            "label": "J",
+                            "value": "41"
+                        },
+                        {
+                            "label": "K",
+                            "value": "11"
+                        },
+                        {
+                            "label": "L",
+                            "value": "51"
+                        },
+                        {
+                            "label": "M",
+                            "value": "05"
+                        },
+                        {
+                            "label": "N",
+                            "value": "45"
+                        },
+                        {
+                            "label": "O",
+                            "value": "15"
+                        },
+                        {
+                            "label": "P",
+                            "value": "55"
+                        }
+                    ]
+                },
+                {
+                    "name": "ByteAdr",
+                    "type": "Select",
+                    "caption": "Zahl",
+                    "options": [
+                        {
+                            "label": "1",
+                            "value": "00"
+                        },
+                        {
+                            "label": "2",
+                            "value": "40"
+                        },
+                        {
+                            "label": "3",
+                            "value": "10"
+                        },
+                        {
+                            "label": "4",
+                            "value": "50"
+                        },
+                        {
+                            "label": "5",
+                            "value": "04"
+                        },
+                        {
+                            "label": "6",
+                            "value": "44"
+                        },
+                        {
+                            "label": "7",
+                            "value": "14"
+                        },
+                        {
+                            "label": "8",
+                            "value": "54"
+                        },
+                        {
+                            "label": "9",
+                            "value": "01"
+                        },
+                        {
+                            "label": "10",
+                            "value": "41"
+                        },
+                        {
+                            "label": "11",
+                            "value": "11"
+                        },
+                        {
+                            "label": "12",
+                            "value": "51"
+                        },
+                        {
+                            "label": "13",
+                            "value": "05"
+                        },
+                        {
+                            "label": "14",
+                            "value": "45"
+                        },
+                        {
+                            "label": "15",
+                            "value": "15"
+                        },
+                        {
+                            "label": "16",
+                            "value": "55"
+                        }
+                    ]
+                },
+                {
+                    "name": "Repeat",
+                    "type": "Select",
+                    "caption": "Sende-Zyklen",
+                    "options": [
+                        {
+                            "label": "1",
+                            "value": 1
+                        },
+                        {
+                            "label": "2",
+                            "value": 2
+                        },
+                        {
+                            "label": "3",
+                            "value": 3
+                        },
+                        {
+                            "label": "4",
+                            "value": 4
+                        }
+                    ]
+                }
+            ]
+}

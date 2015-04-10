@@ -1,0 +1,11 @@
+{
+    "id": "{006FF555-940D-40DE-B9B5-CDBE22C0828D}",
+    "name": "ELROSwitchRS2",
+    "type": 3,
+    "vendor": "ELRO",
+    "aliases": ["FLS 100 Schalter (RS)"],
+    "parentRequirements": ["{E6D7692A-7F4C-441D-827B-64062CFE1C02}"],
+    "childRequirements": [],
+    "implemented": ["{FD7FF32C-331E-4F6B-8BA8-F73982EF5AA7}"],
+    "prefix": "ELRO"
+}
