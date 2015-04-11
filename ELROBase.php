@@ -1,4 +1,5 @@
 <?
+
 //
 // --- BASE MESSAGE
 define('IPS_BASE', 10000);                             //Base Message
@@ -144,32 +145,27 @@ define('FOUND_UNSUPPORTED', 4); //Device is not supported by Module
 class ELROBase extends IPSModule {
 
     protected $Address = '';
-//    protected static $on ;
-//    protected static $off;
-    //Dummy
+//Dummy
     protected $fKernelRunlevel;
 
     public function __construct($InstanceID) {
 
         //Never delete this line!
         parent::__construct($InstanceID);
-        IPS_LogMessage(__CLASS__, __FUNCTION__); //           
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
+        //Register Variables
+        $this->RegisterVariableBoolean('STATE', 'STATE', '~Switch');
+//OFFEN        $this->MaintainAction('STATE', 'ActionHandler',True);
+        //Register Property        
+        $this->RegisterPropertyInteger("Repeat", 2);
+//DUMMY
         $this->fKernelRunlevel = KR_READY;
     }
-
-/*    public function ApplyChanges() {
-        IPS_LogMessage(__CLASS__, __FUNCTION__.'Start'); //           
-        //Never delete this line!
-        parent::ApplyChanges();
-        IPS_LogMessage(__CLASS__, __FUNCTION__.'End'); //           
-    }*/
 
 ################## PRIVATE     
 
     protected function DoSend($Adresse, $Value, $Resend) {
-        IPS_LogMessage(__CLASS__, __FUNCTION__); //           
         IPS_LogMessage("ELRO_DoSend", "DummyFunktion");
     }
 
@@ -203,8 +199,6 @@ class ELROBase extends IPSModule {
 ################## ActionHandler
 
     public function ActionHandler($StatusVariableIdent, $Value) {
-        IPS_LogMessage(__CLASS__, __FUNCTION__); //           
-
         if ($StatusVariableIdent == 'STATE')
             $this->SwitchHandler('STATE', $Value);
     }
@@ -216,8 +210,6 @@ class ELROBase extends IPSModule {
      */
 
     public function SendSwitch($State) {
-        IPS_LogMessage(__CLASS__, __FUNCTION__); //           
-
         if (!$this->HasActiveParent())
             throw new Exception("Instance has no active Parent Instance!");
         else {
@@ -239,18 +231,15 @@ class ELROBase extends IPSModule {
 //0x3CCF // Gerät 1003 = Steckdose 3
 //0x15 = ein
 //0x14=aus
-################## DUMMYS / WOARKAROUNDS - PRIVATE
+################## DUMMYS / WOARKAROUNDS - protected
 
     protected function HasActiveParent() {
-        IPS_LogMessage(__CLASS__, __FUNCTION__); //           
-
         $id = @IPS_GetInstanceParentID($this->InstanceID);
         if ($id > 0) {
             if (IPS_GetInstance($id)['InstanceStatus'] == IS_ACTIVE)
                 return true;
             else
                 return false;
-            
         }
     }
 
@@ -269,8 +258,9 @@ class ELROBase extends IPSModule {
     protected function LogMessage($data, $cata) {
         
     }
-    protected function SetSummary($data){
-        IPS_LogMessage(__CLASS__, __FUNCTION__."Data:".$data); //                   
+
+    protected function SetSummary($data) {
+        IPS_LogMessage(__CLASS__, __FUNCTION__ . "Data:" . $data); //                   
     }
 
 }
