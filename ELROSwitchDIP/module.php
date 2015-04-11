@@ -5,14 +5,18 @@ class ELROSwitchDIP extends ELROBase {
 
     public function __construct($InstanceID) {
         //Never delete this line!
+        IPS_LogMessage(__CLASS__,__FUNCTION__.'StartParent');//                   
         parent::__construct($InstanceID);
-        IPS_LogMessage(__CLASS__,__FUNCTION__.'Start');//           
+        IPS_LogMessage(__CLASS__,__FUNCTION__.'EndParent');//                   
+        IPS_LogMessage(__CLASS__,__FUNCTION__.'StartRegVars');//           
         
         //Register Variables
         $this->RegisterVariableBoolean('STATE', 'STATE', '~Switch');
+IPS_LogMessage(__CLASS__,__FUNCTION__.'ActionHandler');//          
         $this->MaintainAction('STATE', 'ActionHandler',True);
 //        $this->RegisterAction('STATE', 'ActionHandler');
         //Register Property
+        IPS_LogMessage(__CLASS__,__FUNCTION__.'PropertyBool');//                   
         $this->RegisterPropertyBoolean('Bit0', false);
         $this->RegisterPropertyBoolean('Bit1', false);
         $this->RegisterPropertyBoolean('Bit2', false);
@@ -23,9 +27,11 @@ class ELROSwitchDIP extends ELROBase {
         $this->RegisterPropertyBoolean('Bit7', false);
         $this->RegisterPropertyBoolean('Bit8', false);
         $this->RegisterPropertyBoolean('Bit9', false);
+IPS_LogMessage(__CLASS__,__FUNCTION__.'PropertyInt');//                           
         $this->RegisterPropertyInteger('Repeat', 2);
 //        $this->RegisterPropertyString('ON', '5');
 //        $this->RegisterPropertyString('ON', '4');
+IPS_LogMessage(__CLASS__,__FUNCTION__.'OnOff');//                           
          $this->on = '5';
          $this->off = '4';
         IPS_LogMessage(__CLASS__,__FUNCTION__.'End');//                   
