@@ -1,6 +1,9 @@
 <?
 
 require_once('../ELROBase.php');  // ELROBase Klasse
+IPS_LogMessage('File',__FILE__);
+IPS_LogMessage('File',__DIR__);
+IPS_LogMessage('File',print_r($_ENV,1));
 
 class ELROSwitchDIP extends ELROBase {
 
