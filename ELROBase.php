@@ -167,14 +167,14 @@ class ELROBase extends IPSModule {
         //Never delete this line!
         parent::ApplyChanges();
 //Testing
-        $this->DoSend(true);
+//        $this->DoSend(true);
     }
 
 ################## PRIVATE     
 
     protected function DoSend($Value) {
         $Adresse = static::GetAdress();
-        $Repeat = $this->ReadPropertyInteger('Repeat');
+        $Repeat = $this->ReadPropertyInteger("Repeat");
         //hex2bin          
         IPS_LogMessage("ELRO_DoSend", "DummyFunktion:" . $Adresse);
     }
