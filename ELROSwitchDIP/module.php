@@ -8,7 +8,8 @@ class ELROSwitchDIP extends ELROBase {
         parent::__construct($InstanceID);
         //Register Variables
         $this->RegisterVariableBoolean('STATE', 'STATE', '~Switch');
-        $this->RegisterAction('STATE', 'ActionHandler');
+        $this->MaintainAction('STATE', 'ActionHandler',True);
+//        $this->RegisterAction('STATE', 'ActionHandler');
         //Register Property
         $this->RegisterPropertyBoolean('Bit0', false);
         $this->RegisterPropertyBoolean('Bit1', false);

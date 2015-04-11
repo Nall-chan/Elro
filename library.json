@@ -1,9 +1,9 @@
 {
-	"id": "{FE324FCE-F38F-48C5-9760-6F013EA8A6F2}",
+	"id": "{D2A49F50-6281-4B26-BA75-2197CFA38AF0}",
 	"author": "Michael Tröger",
-	"name": "MS35 RGB Library",
+	"name": "ELRO Library",
 	"url": "git.nall-chan.net",
-	"version": "0.1",
-	"build": 0,
-	"date": 0
+	"version": "0.5",
+	"build": 100,
+	"date": 15
 }
