@@ -6,11 +6,11 @@ class ELROSwitchDIP extends ELROBase {
     public function __construct($InstanceID) {
         //Never delete this line!
         parent::__construct($InstanceID);
-        IPS_LogMessage(__CLASS__,__FUNCTION__);//           
+        IPS_LogMessage(__CLASS__,__FUNCTION__.'Start');//           
         
         //Register Variables
-//        $this->RegisterVariableBoolean('STATE', 'STATE', '~Switch');
-//        $this->MaintainAction('STATE', 'ActionHandler',True);
+        $this->RegisterVariableBoolean('STATE', 'STATE', '~Switch');
+        $this->MaintainAction('STATE', 'ActionHandler',True);
 //        $this->RegisterAction('STATE', 'ActionHandler');
         //Register Property
         $this->RegisterPropertyBoolean('Bit0', false);
@@ -26,19 +26,19 @@ class ELROSwitchDIP extends ELROBase {
         $this->RegisterPropertyInteger('Repeat', 2);
 //        $this->RegisterPropertyString('ON', '5');
 //        $this->RegisterPropertyString('ON', '4');
-//         $this->on = '5';
-//         $this->off = '4';
-        
+         $this->on = '5';
+         $this->off = '4';
+        IPS_LogMessage(__CLASS__,__FUNCTION__.'End');//                   
     }
 
     public function ApplyChanges() {
-        IPS_LogMessage(__CLASS__,__FUNCTION__);//                   
+                IPS_LogMessage(__CLASS__,__FUNCTION__.'Start1');//                              
 IPS_LogMessage('Config',print_r(json_decode(IPS_GetConfiguration($this->InstanceID)),1));
-
+        IPS_LogMessage(__CLASS__,__FUNCTION__.'end1');//           
         
         //Never delete this line!
         parent::ApplyChanges();
-        IPS_LogMessage(__CLASS__,__FUNCTION__);//                   
+                IPS_LogMessage(__CLASS__,__FUNCTION__.'Start'2);//           
 IPS_LogMessage('Config',print_r(json_decode(IPS_GetConfiguration($this->InstanceID)),1));
         $Adresse = 0;
         if (!$this->ReadPropertyBoolean('Bit0'))
@@ -74,6 +74,7 @@ IPS_LogMessage('Config',print_r(json_decode(IPS_GetConfiguration($this->Instance
         $this->SetSummary('0x' . $Target);
         $this->Address = $Target;
         //hex2bin
+        IPS_LogMessage(__CLASS__,__FUNCTION__.'End2');//                   
     }
 
 

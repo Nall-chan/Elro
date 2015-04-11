@@ -160,9 +160,10 @@ class ELROBase extends IPSModule {
     }
 
     public function ApplyChanges() {
-        IPS_LogMessage(__CLASS__, __FUNCTION__); //           
+        IPS_LogMessage(__CLASS__, __FUNCTION__.'Start'); //           
         //Never delete this line!
         parent::ApplyChanges();
+        IPS_LogMessage(__CLASS__, __FUNCTION__.'End'); //           
     }
 
 ################## PRIVATE     
