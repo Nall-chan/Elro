@@ -3,7 +3,8 @@
 require_once(__DIR__."/../ELROBase.php");  // ELROBase Klasse
 
 class ELROSwitchRS3 extends ELROBase {
-
+         const on = '5';
+         const off = '0';
     public function __construct($InstanceID) {
         //Never delete this line!
         parent::__construct($InstanceID);
@@ -16,8 +17,8 @@ class ELROSwitchRS3 extends ELROBase {
         $this->RegisterPropertyInteger('Repeat', 2);
 //        $this->RegisterPropertyString('ON', '5');
 //        $this->RegisterPropertyString('ON', '4');
-         $this->on = '5';
-         $this->off = '0';
+//         $this->on = '5';
+//         $this->off = '0';
         
     }
 

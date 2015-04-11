@@ -144,8 +144,8 @@ define('FOUND_UNSUPPORTED', 4); //Device is not supported by Module
 class ELROBase extends IPSModule {
 
     protected static $Address = '';
-    protected static $on = '5';
-    protected static $off = '4';
+//    protected static $on ;
+//    protected static $off;
     //Dummy
     private $fKernelRunlevel;
 
@@ -222,9 +222,9 @@ class ELROBase extends IPSModule {
             throw new Exception("Instance has no active Parent Instance!");
         else {
             if ((bool) $State)
-                $SendState = $this->on;
+                $SendState = self::on;
             else
-                $SendState = $this->off;
+                $SendState = self::off;
             if ($this->DoSend($this->Address, $SendState, $this->ReadPropertyInteger('Repeat')))
                 IPS_SetValueBoolean($this->GetIDForIdent('STATE'), $State);
             else

@@ -1,7 +1,8 @@
 <?
 
 require_once(__DIR__."/../ELROBase.php");  // ELROBase Klasse
-
+         const on = '5';
+         const off = '4';
 class ELROSwitchRS extends ELROBase {
 
     public function __construct($InstanceID) {
@@ -14,8 +15,8 @@ class ELROSwitchRS extends ELROBase {
         $this->RegisterPropertyString('CharAdr', '00');
         $this->RegisterPropertyString('ByteAdr', '00');
         $this->RegisterPropertyInteger('Repeat', 2);
-        $this->on = '5';
-        $this->off = '4';
+//        $this->on = '5';
+  //      $this->off = '4';
     }
 
     public function ApplyChanges() {

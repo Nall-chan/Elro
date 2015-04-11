@@ -2,6 +2,8 @@
 
 require_once(__DIR__."/../ELROBase.php");  // ELROBase Klasse
 class ELROSwitchDIP extends ELROBase {
+         const on = '5';
+         const off = '4';
 
     public function __construct($InstanceID) {
         //Never delete this line!
@@ -32,8 +34,6 @@ IPS_LogMessage(__CLASS__,__FUNCTION__.'PropertyInt');//
 //        $this->RegisterPropertyString('ON', '5');
 //        $this->RegisterPropertyString('ON', '4');
 IPS_LogMessage(__CLASS__,__FUNCTION__.'OnOff');//                           
-         $this->on = '5';
-         $this->off = '4';
         IPS_LogMessage(__CLASS__,__FUNCTION__.'End');//                   
     }
 
