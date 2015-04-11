@@ -166,6 +166,8 @@ class ELROBase extends IPSModule {
     public function ApplyChanges() {
         //Never delete this line!
         parent::ApplyChanges();
+//Testing
+        $this->DoSend();
     }
 
 ################## PRIVATE     
