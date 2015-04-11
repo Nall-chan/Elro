@@ -153,14 +153,14 @@ class ELROBase extends IPSModule {
 
         //Never delete this line!
         parent::__construct($InstanceID);
-        IPS_LogMessage('HMSysVar', __FUNCTION__); //           
+        IPS_LogMessage(__CLASS__, __FUNCTION__); //           
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
         $this->fKernelRunlevel = KR_READY;
     }
 
     public function ApplyChanges() {
-        IPS_LogMessage('HMSysVar', __FUNCTION__); //           
+        IPS_LogMessage(__CLASS__, __FUNCTION__); //           
         //Never delete this line!
         parent::ApplyChanges();
     }
@@ -168,7 +168,7 @@ class ELROBase extends IPSModule {
 ################## PRIVATE     
 
     public function DoSend($Adresse, $Value, $Resend) {
-        IPS_LogMessage('HMSysVar', __FUNCTION__); //           
+        IPS_LogMessage(__CLASS__, __FUNCTION__); //           
         IPS_LogMessage("ELRO_DoSend", "DummyFunktion");
     }
 
@@ -202,7 +202,7 @@ class ELROBase extends IPSModule {
 ################## ActionHandler
 
     public function ActionHandler($StatusVariableIdent, $Value) {
-        IPS_LogMessage('HMSysVar', __FUNCTION__); //           
+        IPS_LogMessage(__CLASS__, __FUNCTION__); //           
 
         if ($StatusVariableIdent == 'STATE')
             $this->SwitchHandler('STATE', $Value);
@@ -215,7 +215,7 @@ class ELROBase extends IPSModule {
      */
 
     public function SendSwitch($State) {
-        IPS_LogMessage('HMSysVar', __FUNCTION__); //           
+        IPS_LogMessage(__CLASS__, __FUNCTION__); //           
 
         if (!$this->HasActiveParent())
             throw new Exception("Instance has no active Parent Instance!");
@@ -241,7 +241,7 @@ class ELROBase extends IPSModule {
 ################## DUMMYS / WOARKAROUNDS - PRIVATE
 
     private function HasActiveParent() {
-        IPS_LogMessage('HMSysVar', __FUNCTION__); //           
+        IPS_LogMessage(__CLASS__, __FUNCTION__); //           
 
         $id = @IPS_GetInstanceParentID($this->InstanceID);
         if ($id > 0) {
@@ -253,15 +253,15 @@ class ELROBase extends IPSModule {
     }
 
     private function SetStatus($data) {
-        IPS_LogMessage('HMSysVar', __FUNCTION__); //           
+        IPS_LogMessage(__CLASS__, __FUNCTION__); //           
     }
 
     private function RegisterTimer($data, $cata) {
-        IPS_LogMessage('HMSysVar', __FUNCTION__); //           
+        IPS_LogMessage(__CLASS__, __FUNCTION__); //           
     }
 
     private function SetTimerInterval($data, $cata) {
-        IPS_LogMessage('HMSysVar', __FUNCTION__); //           
+        IPS_LogMessage(__CLASS__, __FUNCTION__); //           
     }
 
     private function LogMessage($data, $cata) {
