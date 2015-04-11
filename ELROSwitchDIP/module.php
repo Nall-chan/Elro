@@ -23,7 +23,7 @@ class ELROSwitchDIP extends ELROBase {
         $this->RegisterPropertyBoolean("Bit9", false);
     }
 
-    protected static function GetAdress() {
+    protected function GetAdress() {
         $Adresse = 0;
         if (!$this->ReadPropertyBoolean('Bit0'))
             $Adresse = 1;

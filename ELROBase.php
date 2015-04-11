@@ -173,7 +173,7 @@ class ELROBase extends IPSModule {
 ################## PRIVATE     
 
     protected function DoSend($Value) {
-        $Adresse = $this->GetAdress();
+        $Adresse = static::GetAdress();
         $Repeat = $this->ReadPropertyInteger('Repeat');
         //hex2bin          
         IPS_LogMessage("ELRO_DoSend", "DummyFunktion:" . $Adresse);
@@ -241,8 +241,7 @@ class ELROBase extends IPSModule {
 //0x3CCF // Gerät 1003 = Steckdose 3
 //0x15 = ein
 //0x14=aus
-    protected static function GetAdress() {
-        return static::GetAdress();
+    protected  function GetAdress() {
     }
 
 ################## DUMMYS / WOARKAROUNDS - protected
