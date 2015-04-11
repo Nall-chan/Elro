@@ -269,6 +269,9 @@ class ELROBase extends IPSModule {
     private function LogMessage($data, $cata) {
         
     }
+    private function SetSummary($data){
+        IPS_LogMessage(__CLASS__, __FUNCTION__); //                   
+    }
 
 }
 
