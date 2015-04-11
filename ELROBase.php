@@ -270,7 +270,7 @@ class ELROBase extends IPSModule {
         
     }
     protected function SetSummary($data){
-        IPS_LogMessage(__CLASS__, __FUNCTION__); //                   
+        IPS_LogMessage(__CLASS__, __FUNCTION__."Data:".$data); //                   
     }
 
 }
