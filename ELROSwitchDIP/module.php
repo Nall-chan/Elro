@@ -38,7 +38,7 @@ IPS_LogMessage('Config',print_r(json_decode(IPS_GetConfiguration($this->Instance
         
         //Never delete this line!
         parent::ApplyChanges();
-                IPS_LogMessage(__CLASS__,__FUNCTION__.'Start'2);//           
+                IPS_LogMessage(__CLASS__,__FUNCTION__.'Start2');//           
 IPS_LogMessage('Config',print_r(json_decode(IPS_GetConfiguration($this->InstanceID)),1));
         $Adresse = 0;
         if (!$this->ReadPropertyBoolean('Bit0'))
