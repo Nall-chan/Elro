@@ -159,16 +159,16 @@ class ELROBase extends IPSModule {
         $this->fKernelRunlevel = KR_READY;
     }
 
-    public function ApplyChanges() {
+/*    public function ApplyChanges() {
         IPS_LogMessage(__CLASS__, __FUNCTION__.'Start'); //           
         //Never delete this line!
         parent::ApplyChanges();
         IPS_LogMessage(__CLASS__, __FUNCTION__.'End'); //           
-    }
+    }*/
 
 ################## PRIVATE     
 
-    public function DoSend($Adresse, $Value, $Resend) {
+    protected function DoSend($Adresse, $Value, $Resend) {
         IPS_LogMessage(__CLASS__, __FUNCTION__); //           
         IPS_LogMessage("ELRO_DoSend", "DummyFunktion");
     }
@@ -241,7 +241,7 @@ class ELROBase extends IPSModule {
 //0x14=aus
 ################## DUMMYS / WOARKAROUNDS - PRIVATE
 
-    private function HasActiveParent() {
+    protected function HasActiveParent() {
         IPS_LogMessage(__CLASS__, __FUNCTION__); //           
 
         $id = @IPS_GetInstanceParentID($this->InstanceID);
@@ -254,22 +254,22 @@ class ELROBase extends IPSModule {
         }
     }
 
-    private function SetStatus($data) {
+    protected function SetStatus($data) {
         IPS_LogMessage(__CLASS__, __FUNCTION__); //           
     }
 
-    private function RegisterTimer($data, $cata) {
+    protected function RegisterTimer($data, $cata) {
         IPS_LogMessage(__CLASS__, __FUNCTION__); //           
     }
 
-    private function SetTimerInterval($data, $cata) {
+    protected function SetTimerInterval($data, $cata) {
         IPS_LogMessage(__CLASS__, __FUNCTION__); //           
     }
 
-    private function LogMessage($data, $cata) {
+    protected function LogMessage($data, $cata) {
         
     }
-    private function SetSummary($data){
+    protected function SetSummary($data){
         IPS_LogMessage(__CLASS__, __FUNCTION__); //                   
     }
 
