@@ -1,5 +1,5 @@
 <?
-
+//
 // --- BASE MESSAGE
 define('IPS_BASE', 10000);                             //Base Message
 
@@ -249,6 +249,7 @@ class ELROBase extends IPSModule {
                 return true;
             else
                 return false;
+            
         }
     }
 
