@@ -32,10 +32,13 @@ class ELROSwitchDIP extends ELROBase {
     }
 
     public function ApplyChanges() {
-        IPS_LogMessage(__CLASS__,__FUNCTION__);//           
+        IPS_LogMessage(__CLASS__,__FUNCTION__);//                   
+IPS_LogMessage('Config',print_r(json_decode(IPS_GetConfiguration($this->InstanceID)),1));
+
         
         //Never delete this line!
         parent::ApplyChanges();
+        IPS_LogMessage(__CLASS__,__FUNCTION__);//                   
 IPS_LogMessage('Config',print_r(json_decode(IPS_GetConfiguration($this->InstanceID)),1));
         $Adresse = 0;
         if (!$this->ReadPropertyBoolean('Bit0'))
