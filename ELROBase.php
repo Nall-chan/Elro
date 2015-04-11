@@ -163,10 +163,17 @@ class ELROBase extends IPSModule {
         $this->fKernelRunlevel = KR_READY;
     }
 
+    public function ApplyChanges() {
+        //Never delete this line!
+        parent::ApplyChanges();
+    }
+
 ################## PRIVATE     
 
-    protected function DoSend($Adresse, $Value, $Resend) {
-        IPS_LogMessage("ELRO_DoSend", "DummyFunktion");
+    protected function DoSend($Value, $Resend) {
+        $Adresse = static::GetAdress();
+        //hex2bin          
+        IPS_LogMessage("ELRO_DoSend", "DummyFunktion:" . $Adresse);
     }
 
     /*              parent:=getParent();
@@ -217,7 +224,7 @@ class ELROBase extends IPSModule {
                 $SendState = self::on;
             else
                 $SendState = self::off;
-            if ($this->DoSend($this->Address, $SendState, $this->ReadPropertyInteger('Repeat')))
+            if ($this->DoSend($SendState, $this->ReadPropertyInteger('Repeat')))
                 IPS_SetValueBoolean($this->GetIDForIdent('STATE'), $State);
             else
                 throw new Exception('Fehler beim senden!');
@@ -231,6 +238,10 @@ class ELROBase extends IPSModule {
 //0x3CCF // Gerät 1003 = Steckdose 3
 //0x15 = ein
 //0x14=aus
+    protected static function GetAdress() {
+        
+    }
+
 ################## DUMMYS / WOARKAROUNDS - protected
 
     protected function HasActiveParent() {

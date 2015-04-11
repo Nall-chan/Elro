@@ -23,10 +23,7 @@ class ELROSwitchDIP extends ELROBase {
         $this->RegisterPropertyBoolean("Bit9", false);
     }
 
-    public function ApplyChanges() {
-        //Never delete this line!
-        parent::ApplyChanges();
-//        IPS_LogMessage('Config', print_r(json_decode(IPS_GetConfiguration($this->InstanceID)), 1));
+    protected static function GetAdress() {
         $Adresse = 0;
         if (!$this->ReadPropertyBoolean('Bit0'))
             $Adresse = 1;
@@ -59,8 +56,7 @@ class ELROSwitchDIP extends ELROBase {
         $Target.=dechex($Adresse);
 
         $this->SetSummary('0x' . $Target);
-        $this->Address = $Target;
-        //hex2bin
+        return $Target;
     }
 
 }

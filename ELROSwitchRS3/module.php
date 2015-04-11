@@ -15,15 +15,12 @@ class ELROSwitchRS3 extends ELROBase {
         $this->RegisterPropertyString('ByteAdr', 'D4');
     }
 
-    public function ApplyChanges() {
-        //Never delete this line!
-        parent::ApplyChanges();
+    protected static function GetAdress() {
 
 
         $Target = $this->ReadPropertyString('CharAdr') . $this->ReadPropertyString('ByteAdr') . '5';
         $this->SetSummary('0x' . $Target);
-        $this->Address = $Target;
-        //hex2bin
+        return $Target;
     }
 
 }
