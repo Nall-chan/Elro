@@ -142,61 +142,68 @@ define('FOUND_CURRENT', 3);     //Device is already configues (InstanceID is fro
 define('FOUND_UNSUPPORTED', 4); //Device is not supported by Module
 
 class ELROBase extends IPSModule {
-    protected static $Address='';
+
+    protected static $Address = '';
     protected static $on = '5';
     protected static $off = '4';
-    
     //Dummy
     private $fKernelRunlevel;
 
     public function __construct($InstanceID) {
+
         //Never delete this line!
         parent::__construct($InstanceID);
-
+        IPS_LogMessage('HMSysVar', __FUNCTION__); //           
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
         $this->fKernelRunlevel = KR_READY;
     }
+
     public function ApplyChanges() {
+        IPS_LogMessage('HMSysVar', __FUNCTION__); //           
         //Never delete this line!
         parent::ApplyChanges();
     }
+
 ################## PRIVATE     
 
-    public function DoSend ($Adresse,$Value,$Resend)
-    {
-                            IPS_LogMessage("ELRO_DoSend", "DummyFunktion");
+    public function DoSend($Adresse, $Value, $Resend) {
+        IPS_LogMessage('HMSysVar', __FUNCTION__); //           
+        IPS_LogMessage("ELRO_DoSend", "DummyFunktion");
     }
-/*              parent:=getParent();
-    //Test ob Instance existiert
-    if parent=NIL then
-    begin
+
+    /*              parent:=getParent();
+      //Test ob Instance existiert
+      if parent=NIL then
+      begin
       //nein->Melden
       Result:=false;
-    end else begin
+      end else begin
       //test ob IIPSSendString-Interface existiert
       if supports(parent,IIPSSendHID,ifsend) then
       begin
-        //existiert, kann senden
-        for i:=Resend downto 1 do
-          if IsDbg=true then    LogMessage(KL_DEBUG,'Sende '+IntToStr(Resend));
-          ifsend.SendEvent(0,HexStrToString('01002003CA000000'));
-          ifsend.SendEvent(0,HexStrToString('0200206060201812'));
-          ifsend.SendEvent(0,HexStrToString('03'+Adresse+Value+'00000000'));
-          ifsend.SendEvent(0,HexStrToString('0400000000000000'));
-          ifsend.SendEvent(0,HexStrToString('0500000000000000'));
+      //existiert, kann senden
+      for i:=Resend downto 1 do
+      if IsDbg=true then    LogMessage(KL_DEBUG,'Sende '+IntToStr(Resend));
+      ifsend.SendEvent(0,HexStrToString('01002003CA000000'));
+      ifsend.SendEvent(0,HexStrToString('0200206060201812'));
+      ifsend.SendEvent(0,HexStrToString('03'+Adresse+Value+'00000000'));
+      ifsend.SendEvent(0,HexStrToString('0400000000000000'));
+      ifsend.SendEvent(0,HexStrToString('0500000000000000'));
 
-          Result:= true;
-        end else begin
-        //Problem mitteilen
-        Result:=false;
+      Result:= true;
+      end else begin
+      //Problem mitteilen
+      Result:=false;
       end;
-    end;
- */
- 
+      end;
+     */
+
 ################## ActionHandler
 
     public function ActionHandler($StatusVariableIdent, $Value) {
+        IPS_LogMessage('HMSysVar', __FUNCTION__); //           
+
         if ($StatusVariableIdent == 'STATE')
             $this->SwitchHandler('STATE', $Value);
     }
@@ -208,6 +215,8 @@ class ELROBase extends IPSModule {
      */
 
     public function SendSwitch($State) {
+        IPS_LogMessage('HMSysVar', __FUNCTION__); //           
+
         if (!$this->HasActiveParent())
             throw new Exception("Instance has no active Parent Instance!");
         else {
@@ -232,6 +241,8 @@ class ELROBase extends IPSModule {
 ################## DUMMYS / WOARKAROUNDS - PRIVATE
 
     private function HasActiveParent() {
+        IPS_LogMessage('HMSysVar', __FUNCTION__); //           
+
         $id = @IPS_GetInstanceParentID($this->InstanceID);
         if ($id > 0) {
             if (IPS_GetInstance($id)['InstanceStatus'] == IS_ACTIVE)
@@ -242,15 +253,15 @@ class ELROBase extends IPSModule {
     }
 
     private function SetStatus($data) {
-        
+        IPS_LogMessage('HMSysVar', __FUNCTION__); //           
     }
 
     private function RegisterTimer($data, $cata) {
-        
+        IPS_LogMessage('HMSysVar', __FUNCTION__); //           
     }
 
     private function SetTimerInterval($data, $cata) {
-        
+        IPS_LogMessage('HMSysVar', __FUNCTION__); //           
     }
 
     private function LogMessage($data, $cata) {

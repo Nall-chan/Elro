@@ -6,6 +6,8 @@ class ELROSwitchDIP extends ELROBase {
     public function __construct($InstanceID) {
         //Never delete this line!
         parent::__construct($InstanceID);
+        IPS_LogMessage('HMSysVar',__FUNCTION__);//           
+        
         //Register Variables
 //        $this->RegisterVariableBoolean('STATE', 'STATE', '~Switch');
 //        $this->MaintainAction('STATE', 'ActionHandler',True);
@@ -30,6 +32,8 @@ class ELROSwitchDIP extends ELROBase {
     }
 
     public function ApplyChanges() {
+        IPS_LogMessage('HMSysVar',__FUNCTION__);//           
+        
         //Never delete this line!
         parent::ApplyChanges();
 
