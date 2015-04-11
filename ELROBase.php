@@ -159,6 +159,8 @@ class ELROBase extends IPSModule {
 //OFFEN        $this->MaintainAction('STATE', 'ActionHandler',True);
         //Register Property        
         $this->RegisterPropertyInteger("Repeat", 2);
+        IPS_LogMessage(__CLASS__,print_r(json_decode(IPS_GetConfiguration($this->InstanceID)),1));        
+        
 //DUMMY
         $this->fKernelRunlevel = KR_READY;
     }
