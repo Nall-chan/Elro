@@ -157,7 +157,10 @@ class ELROBase extends IPSModule {
         //You cannot use variables here. Just static values.
         $this->fKernelRunlevel = KR_READY;
     }
-
+    public function ApplyChanges() {
+        //Never delete this line!
+        parent::ApplyChanges();
+    }
 ################## PRIVATE     
 
     public function DoSend ($Adresse,$Value,$Resend)
