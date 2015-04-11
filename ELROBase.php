@@ -144,7 +144,6 @@ define('FOUND_UNSUPPORTED', 4); //Device is not supported by Module
 
 class ELROBase extends IPSModule {
 
-    protected $Address = '';
 //Dummy
     protected $fKernelRunlevel;
 
