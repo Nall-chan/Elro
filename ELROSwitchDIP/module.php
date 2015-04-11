@@ -10,6 +10,9 @@ class ELROSwitchDIP extends ELROBase {
     public function __construct($InstanceID) {
         //Never delete this line!
         parent::__construct($InstanceID);
+        //Register Variables
+        $this->RegisterVariableBoolean('STATE', 'STATE', '~Switch');
+//OFFEN        $this->MaintainAction('STATE', 'ActionHandler',True);
         //Register Property
         $this->RegisterPropertyBoolean("Bit0", false);
         $this->RegisterPropertyBoolean("Bit1", false);
@@ -21,7 +24,7 @@ class ELROSwitchDIP extends ELROBase {
         $this->RegisterPropertyBoolean("Bit7", false);
         $this->RegisterPropertyBoolean("Bit8", false);
         $this->RegisterPropertyBoolean("Bit9", false);
-        IPS_LogMessage(__CLASS__,print_r(json_decode(IPS_GetConfiguration($this->InstanceID)),1));        
+        $this->RegisterPropertyInteger("Repeat", 2);
     }
 
     protected function GetAdress() {

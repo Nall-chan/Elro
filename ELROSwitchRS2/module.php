@@ -10,9 +10,13 @@ class ELROSwitchRS2 extends ELROBase {
     public function __construct($InstanceID) {
         //Never delete this line!
         parent::__construct($InstanceID);
+        //Register Variables
+        $this->RegisterVariableBoolean('STATE', 'STATE', '~Switch');
+//OFFEN        $this->MaintainAction('STATE', 'ActionHandler',True);
         //Register Property
         $this->RegisterPropertyString('CharAdr', '15');
         $this->RegisterPropertyString('ByteAdr', '15');
+        $this->RegisterPropertyInteger("Repeat", 2);
     }
 
     protected  function GetAdress() {

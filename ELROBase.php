@@ -154,12 +154,7 @@ class ELROBase extends IPSModule {
         parent::__construct($InstanceID);
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
-        //Register Variables
-        $this->RegisterVariableBoolean('STATE', 'STATE', '~Switch');
-//OFFEN        $this->MaintainAction('STATE', 'ActionHandler',True);
-        //Register Property        
-        $this->RegisterPropertyInteger("Repeat", 2);
-        IPS_LogMessage(__CLASS__,print_r(json_decode(IPS_GetConfiguration($this->InstanceID)),1));        
+
         
 //DUMMY
         $this->fKernelRunlevel = KR_READY;
@@ -169,7 +164,7 @@ class ELROBase extends IPSModule {
         //Never delete this line!
         parent::ApplyChanges();
 //Testing
-//        $this->DoSend(true);
+        $this->DoSend(true);
     }
 
 ################## PRIVATE     
