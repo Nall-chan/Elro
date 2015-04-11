@@ -15,7 +15,7 @@ class ELROSwitchDIP extends ELROBase {
         //Register Variables
         $this->RegisterVariableBoolean('STATE', 'STATE', '~Switch');
 IPS_LogMessage(__CLASS__,__FUNCTION__.'ActionHandler');//          
-        $this->MaintainAction('STATE', 'ActionHandler',True);
+//        $this->MaintainAction('STATE', 'ActionHandler',True);
 //        $this->RegisterAction('STATE', 'ActionHandler');
         //Register Property
         IPS_LogMessage(__CLASS__,__FUNCTION__.'PropertyBool');//                   

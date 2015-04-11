@@ -10,7 +10,7 @@ class ELROSwitchRS3 extends ELROBase {
         parent::__construct($InstanceID);
         //Register Variables
         $this->RegisterVariableBoolean('STATE', 'STATE', '~Switch');
-        $this->RegisterAction('STATE', 'ActionHandler');
+        //$this->RegisterAction('STATE', 'ActionHandler');
         //Register Property
         $this->RegisterPropertyString('CharAdr', 'D5');
         $this->RegisterPropertyString('ByteAdr', 'D4');
