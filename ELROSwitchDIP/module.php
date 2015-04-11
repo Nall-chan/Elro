@@ -5,7 +5,7 @@
 //IPS_LogMessage('File',__DIR__);
 //IPS_LogMessage('File',print_r($_ENV,1));
 //require_once("../ELROBase.php");  // ELROBase Klasse
-require_once(__FILE__."/../ELROBase.php");  // ELROBase Klasse
+require_once(__DIR__."/../ELROBase.php");  // ELROBase Klasse
 class ELROSwitchDIP extends ELROBase {
 
     public function __construct($InstanceID) {
