@@ -156,7 +156,9 @@ class ELROBase extends IPSModule
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
         $this->RegisterPropertyInteger("Repeat", 2);
-        $this->ConnectParent("{E6D7692A-7F4C-441D-827B-64062CFE1C02}");
+//13.04.2015 22:29:11 | FlowHandler | Could not forward data to instance #41762: 
+//Fatal error: Call to undefined method ELROSwitchDIP::ConnectParent() in /usr/share/symcon/modules/ELRO/ELROBase.php on line 159        
+//        $this->ConnectParent("{E6D7692A-7F4C-441D-827B-64062CFE1C02}");
 
 //DUMMY
         $this->fKernelRunlevel = KR_READY;
