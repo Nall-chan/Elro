@@ -16,7 +16,7 @@ class ELROSwitchRS extends ELROBase {
         //Register Property
         $this->RegisterPropertyString('CharAdr', '00');
         $this->RegisterPropertyString('ByteAdr', '00');
-        $this->RegisterPropertyInteger("Repeat", 2);
+//        $this->RegisterPropertyInteger("Repeat", 2);
     }
 
     protected function GetAdress() {

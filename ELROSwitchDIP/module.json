@@ -4,7 +4,7 @@
     "type": 3,
     "vendor": "ELRO",
     "aliases": ["ELRO Schalter (DIP)"],
-    "parentRequirements": ["{E6D7692A-7F4C-441D-827B-64062CFE1C02}"],
+    "parentRequirements": ["{4A550680-80C5-4465-971E-BBF83205A02B}"],
     "childRequirements": [],
     "implemented": ["{FD7FF32C-331E-4F6B-8BA8-F73982EF5AA7}"],
     "prefix": "ELRO"

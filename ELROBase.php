@@ -142,37 +142,53 @@ define('FOUND_OLD', 2);         //Device is already configues (InstanceID should
 define('FOUND_CURRENT', 3);     //Device is already configues (InstanceID is from the current/searching Instance)
 define('FOUND_UNSUPPORTED', 4); //Device is not supported by Module
 
-class ELROBase extends IPSModule {
+class ELROBase extends IPSModule
+{
 
 //Dummy
     protected $fKernelRunlevel;
 
-    public function __construct($InstanceID) {
+    public function __construct($InstanceID)
+    {
 
         //Never delete this line!
         parent::__construct($InstanceID);
         //These lines are parsed on Symcon Startup or Instance creation
         //You cannot use variables here. Just static values.
+        $this->RegisterPropertyInteger("Repeat", 2);
+        $this->ConnectParent("{E6D7692A-7F4C-441D-827B-64062CFE1C02}");
 
-        
 //DUMMY
         $this->fKernelRunlevel = KR_READY;
     }
 
-    public function ApplyChanges() {
+    public function ApplyChanges()
+    {
         //Never delete this line!
         parent::ApplyChanges();
 //Testing
-        $this->DoSend(true);
+//        $this->DoSend(true);
     }
 
 ################## PRIVATE     
 
-    protected function DoSend($Value) {
-        $Adresse = static::GetAdress();
+    protected function DoSend($Value)
+    {
+        $Addresse = static::GetAdress();
         $Repeat = $this->ReadPropertyInteger("Repeat");
+
         //hex2bin          
-        IPS_LogMessage("ELRO_DoSend", "DummyFunktion:" . $Adresse);
+        IPS_LogMessage("ELRO_DoSend", "Address:" . $Address);
+        $Text = hex2bin('01002003CA000000');
+        $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "Buffer" => $Text)));
+        $Text = hex2bin('0200206060201812');
+        $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "Buffer" => $Text)));
+        $Text = hex2bin('03' . $Addresse . $Value . '00000000');
+        $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "Buffer" => $Text)));
+        $Text = hex2bin('0400000000000000');
+        $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "Buffer" => $Text)));
+        $Text = hex2bin('0500000000000000');
+        
     }
 
     /*              parent:=getParent();
@@ -204,7 +220,8 @@ class ELROBase extends IPSModule {
 
 ################## ActionHandler
 
-    public function ActionHandler($StatusVariableIdent, $Value) {
+    public function ActionHandler($StatusVariableIdent, $Value)
+    {
         if ($StatusVariableIdent == 'STATE')
             $this->SwitchHandler('STATE', $Value);
     }
@@ -215,10 +232,12 @@ class ELROBase extends IPSModule {
      * Using the custom prefix this function will be callable from PHP and JSON-RPC through:
      */
 
-    public function SendSwitch($State) {
+    public function SendSwitch($State)
+    {
         if (!$this->HasActiveParent())
             throw new Exception("Instance has no active Parent Instance!");
-        else {
+        else
+        {
             if ((bool) $State)
                 $SendState = self::on;
             else
@@ -230,6 +249,11 @@ class ELROBase extends IPSModule {
         }
     }
 
+    public function ReceiveData($JSONString)
+    {
+        IPS_LogMessage(__CLASS__ . $this->InstanceID, print_r(json_decode($JSONString), true));
+    }
+
 //$send[] = hex2str("03".$addr.$hexvalue."00000000");   //0x03
 //0x0003 // Gerät 1 = Alle
 //0x3CC1 // Gerät 1001 = Steckdose 1
@@ -237,14 +261,18 @@ class ELROBase extends IPSModule {
 //0x3CCF // Gerät 1003 = Steckdose 3
 //0x15 = ein
 //0x14=aus
-    protected  function GetAdress() {
+    protected function GetAdress()
+    {
+        // must overwrite 
     }
 
 ################## DUMMYS / WOARKAROUNDS - protected
 
-    protected function HasActiveParent() {
+    protected function HasActiveParent()
+    {
         $id = @IPS_GetInstanceParentID($this->InstanceID);
-        if ($id > 0) {
+        if ($id > 0)
+        {
             if (IPS_GetInstance($id)['InstanceStatus'] == IS_ACTIVE)
                 return true;
             else
@@ -252,23 +280,28 @@ class ELROBase extends IPSModule {
         }
     }
 
-    protected function SetStatus($data) {
+    protected function SetStatus($data)
+    {
         IPS_LogMessage(__CLASS__, __FUNCTION__); //           
     }
 
-    protected function RegisterTimer($data, $cata) {
+    protected function RegisterTimer($data, $cata)
+    {
         IPS_LogMessage(__CLASS__, __FUNCTION__); //           
     }
 
-    protected function SetTimerInterval($data, $cata) {
+    protected function SetTimerInterval($data, $cata)
+    {
         IPS_LogMessage(__CLASS__, __FUNCTION__); //           
     }
 
-    protected function LogMessage($data, $cata) {
+    protected function LogMessage($data, $cata)
+    {
         
     }
 
-    protected function SetSummary($data) {
+    protected function SetSummary($data)
+    {
         IPS_LogMessage(__CLASS__, __FUNCTION__ . "Data:" . $data); //                   
     }
 
