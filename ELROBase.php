@@ -176,22 +176,30 @@ class ELROBase extends IPSModule
         $Address = static::GetAdress();
         $Repeat = $this->ReadPropertyInteger("Repeat");
         IPS_LogMessage("ELRO_DoSend", "Address:" . $Address);
+        $SendData[] = hex2bin('01002003CA000000');
+        $SendData[] = hex2bin('0200206060201812');
+        $SendData[] = hex2bin('03' . $Address . $Value . '00000000');
+        $SendData[] = hex2bin('0400000000000000');
+        $SendData[] = hex2bin('0500000000000000');
         do
         {
-            $Text = hex2bin('01002003CA000000');
-            $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "EventID" => 0, "Buffer" => $Text)));
-            $Text = hex2bin('0200206060201812');
-            $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "EventID" => 0, "Buffer" => $Text)));
-            $Text = hex2bin('03' . $Address . $Value . '00000000');
-            $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "EventID" => 0, "Buffer" => $Text)));
-            $Text = hex2bin('0400000000000000');
-            $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "EventID" => 0, "Buffer" => $Text)));
-            $Text = hex2bin('0500000000000000');
-            $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "EventID" => 0, "Buffer" => $Text)));            
+            foreach ($SendData as $Data)
+            {
+                try
+                {
+                    IPS_SendDataToParent($this->InstanceID, json_encode(Array(
+                        "DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}",
+                        "EventID" => 0,
+                        "Buffer" => $Data)));
+                }
+                catch (Exception $ex)
+                {
+                    return false;
+                }
+            }
             $i++;
         }
         while ($i < $Repeat);
-
         return true;
     }
 
