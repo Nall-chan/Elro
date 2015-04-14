@@ -157,7 +157,7 @@ class ELROBase extends IPSModule
 //You cannot use variables here. Just static values.
         //Register Variables
         $this->RegisterVariableBoolean('STATE', 'STATE', '~Switch');
-        $this->EnableAction("STATE");        
+        $this->EnableAction("STATE");
         //Register Property
         $this->RegisterPropertyInteger("Repeat", 2);
 //13.04.2015 22:29:11 | FlowHandler | Could not forward data to instance #41762: 
@@ -179,7 +179,7 @@ class ELROBase extends IPSModule
 
     protected function DoSend($Value)
     {
-IPS_LogMessage(__CLASS__, __FUNCTION__); //          
+        IPS_LogMessage(__CLASS__, __FUNCTION__); //          
         $Addresse = static::GetAdress();
         $Repeat = $this->ReadPropertyInteger("Repeat");
         IPS_LogMessage("ELRO_DoSend", "Address:" . $Address);
@@ -230,7 +230,7 @@ IPS_LogMessage(__CLASS__, __FUNCTION__); //
 
     public function RequestAction($Ident, $Value)
     {
-IPS_LogMessage(__CLASS__, __FUNCTION__.' Ident:.'.$Ident); //     
+        IPS_LogMessage(__CLASS__, __FUNCTION__ . ' Ident:.' . $Ident); //     
         if ($Ident == 'STATE')
             $this->SendSwitch($Value);
     }
@@ -252,7 +252,7 @@ IPS_LogMessage(__CLASS__, __FUNCTION__.' Ident:.'.$Ident); //
                 $SendState = self::on;
             else
                 $SendState = self::off;
-            
+
             if ($this->DoSend($SendState))
                 IPS_SetValueBoolean($this->GetIDForIdent('STATE'), $State);
             else
@@ -282,16 +282,15 @@ IPS_LogMessage(__CLASS__, __FUNCTION__.' Ident:.'.$Ident); //
 
     protected function HasActiveParent()
     {
-IPS_LogMessage(__CLASS__, __FUNCTION__); //          
-        $id = @IPS_GetInstanceParentID($this->InstanceID);
-            IPS_LogMessage(__CLASS__, print_r($id,1));
-        if ($id > 0)
+        IPS_LogMessage(__CLASS__, __FUNCTION__); //          
+        $instance = IPS_GetInstance($this->InstanceID);
+        if ($instance['ConnectionID'] > 0)
         {
-        IPS_LogMessage(__CLASS__, print_r(IPS_GetInstance($id),1));
-            if (IPS_GetInstance($id)['InstanceStatus'] == IS_ACTIVE)
+            $parent = IPS_GetInstance($instance['ConnectionID']);
+            if (IPS_GetInstance($parent)['InstanceStatus'] == IS_ACTIVE)
                 return true;
         }
-        return false;        
+        return false;
     }
 
     protected function SetStatus($data)
