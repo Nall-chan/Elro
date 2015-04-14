@@ -229,6 +229,7 @@ class ELROBase extends IPSModule
 
     public function RequestAction($Ident, $Value)
     {
+IPS_LogMessage(__CLASS__, __FUNCTION__.' Ident:.'.$Ident); //     
         if ($Ident == 'STATE')
             $this->SendSwitch($Value);
     }
