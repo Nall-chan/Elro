@@ -284,13 +284,14 @@ IPS_LogMessage(__CLASS__, __FUNCTION__.' Ident:.'.$Ident); //
     {
 IPS_LogMessage(__CLASS__, __FUNCTION__); //          
         $id = @IPS_GetInstanceParentID($this->InstanceID);
+            IPS_LogMessage(__CLASS__, print_r($id,1));
         if ($id > 0)
         {
+        IPS_LogMessage(__CLASS__, print_r(IPS_GetInstance($id),1));
             if (IPS_GetInstance($id)['InstanceStatus'] == IS_ACTIVE)
                 return true;
-            else
-                return false;
         }
+        return false;        
     }
 
     protected function SetStatus($data)
