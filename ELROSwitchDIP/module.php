@@ -27,6 +27,7 @@ class ELROSwitchDIP extends ELROBase
 
     protected function GetAdress()
     {
+IPS_LogMessage(__CLASS__, __FUNCTION__); //          
         $Adresse = 0;
         if (!$this->ReadPropertyBoolean('Bit0'))
             $Adresse = 1;

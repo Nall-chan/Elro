@@ -179,6 +179,7 @@ class ELROBase extends IPSModule
 
     protected function DoSend($Value)
     {
+IPS_LogMessage(__CLASS__, __FUNCTION__); //          
         $Addresse = static::GetAdress();
         $Repeat = $this->ReadPropertyInteger("Repeat");
         IPS_LogMessage("ELRO_DoSend", "Address:" . $Address);
@@ -242,6 +243,7 @@ IPS_LogMessage(__CLASS__, __FUNCTION__.' Ident:.'.$Ident); //
 
     public function SendSwitch($State)
     {
+        IPS_LogMessage(__CLASS__, __FUNCTION__); //          
         if (!$this->HasActiveParent())
             throw new Exception("Instance has no active Parent Instance!");
         else
@@ -250,6 +252,7 @@ IPS_LogMessage(__CLASS__, __FUNCTION__.' Ident:.'.$Ident); //
                 $SendState = self::on;
             else
                 $SendState = self::off;
+            
             if ($this->DoSend($SendState))
                 IPS_SetValueBoolean($this->GetIDForIdent('STATE'), $State);
             else
