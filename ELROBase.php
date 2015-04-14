@@ -179,14 +179,15 @@ class ELROBase extends IPSModule
         do
         {
             $Text = hex2bin('01002003CA000000');
-            $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "EventID" => 0, "Buffer" => $Text)));
+            $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "EventID" => "0", "Buffer" => $Text)));
             $Text = hex2bin('0200206060201812');
-            $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "EventID" => 0, "Buffer" => $Text)));
+            $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "EventID" => "0", "Buffer" => $Text)));
             $Text = hex2bin('03' . $Address . $Value . '00000000');
-            $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "EventID" => 0, "Buffer" => $Text)));
+            $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "EventID" => "0", "Buffer" => $Text)));
             $Text = hex2bin('0400000000000000');
-            $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "EventID" => 0, "Buffer" => $Text)));
+            $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "EventID" => "0", "Buffer" => $Text)));
             $Text = hex2bin('0500000000000000');
+            $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "EventID" => "0", "Buffer" => $Text)));            
             $i++;
         }
         while ($i < $Repeat);
