@@ -279,7 +279,7 @@ class ELROBase extends IPSModule
         if ($instance['ConnectionID'] > 0)
         {
             $parent = IPS_GetInstance($instance['ConnectionID']);
-            if (IPS_GetInstance($parent)['InstanceStatus'] == IS_ACTIVE)
+            if ($parent['InstanceStatus'] == IS_ACTIVE)
                 return true;
         }
         return false;
