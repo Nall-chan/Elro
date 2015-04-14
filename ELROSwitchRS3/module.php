@@ -15,6 +15,7 @@ class ELROSwitchRS3 extends ELROBase
         //Register Property
         $this->RegisterPropertyString('CharAdr', 'D5');
         $this->RegisterPropertyString('ByteAdr', 'D4');
+        $this->RegisterPropertyInteger("Repeat", 2);
     }
 
     protected function GetAdress()
