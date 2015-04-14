@@ -241,9 +241,9 @@ class ELROBase extends IPSModule
         else
         {
             if ((bool) $State)
-                $SendState = self::on;
+                $SendState = static::on;
             else
-                $SendState = self::off;
+                $SendState = static::off;
 
             if ($this->DoSend($SendState))
                 IPS_SetValueBoolean($this->GetIDForIdent('STATE'), $State);
