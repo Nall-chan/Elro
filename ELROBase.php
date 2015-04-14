@@ -282,6 +282,7 @@ IPS_LogMessage(__CLASS__, __FUNCTION__.' Ident:.'.$Ident); //
 
     protected function HasActiveParent()
     {
+IPS_LogMessage(__CLASS__, __FUNCTION__); //          
         $id = @IPS_GetInstanceParentID($this->InstanceID);
         if ($id > 0)
         {
