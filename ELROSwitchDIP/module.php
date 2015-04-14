@@ -2,17 +2,16 @@
 
 require_once(__DIR__ . "/../ELROBase.php");  // ELROBase Klasse
 
-class ELROSwitchDIP extends ELROBase {
+class ELROSwitchDIP extends ELROBase
+{
 
     const on = '5';
     const off = '4';
 
-    public function __construct($InstanceID) {
+    public function __construct($InstanceID)
+    {
         //Never delete this line!
         parent::__construct($InstanceID);
-        //Register Variables
-        $this->RegisterVariableBoolean('STATE', 'STATE', '~Switch');
-//OFFEN        $this->MaintainAction('STATE', 'ActionHandler',True);
         //Register Property
         $this->RegisterPropertyBoolean("Bit0", false);
         $this->RegisterPropertyBoolean("Bit1", false);
@@ -24,11 +23,10 @@ class ELROSwitchDIP extends ELROBase {
         $this->RegisterPropertyBoolean("Bit7", false);
         $this->RegisterPropertyBoolean("Bit8", false);
         $this->RegisterPropertyBoolean("Bit9", false);
-//        $this->RegisterPropertyInteger("Repeat", 2);
-  
     }
 
-    protected function GetAdress() {
+    protected function GetAdress()
+    {
         $Adresse = 0;
         if (!$this->ReadPropertyBoolean('Bit0'))
             $Adresse = 1;
@@ -59,14 +57,10 @@ class ELROSwitchDIP extends ELROBase {
         if (!$this->ReadPropertyBoolean('Bit9'))
             $Adresse+=4;
         $Target.=dechex($Adresse);
-
         $this->SetSummary('0x' . $Target);
         return $Target;
     }
-    public function SendSwitch($State)
-    {
-        parent::SendSwitch($State);
-    }
+
 }
 
 ?>

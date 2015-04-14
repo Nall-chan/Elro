@@ -151,22 +151,25 @@ class ELROBase extends IPSModule
     public function __construct($InstanceID)
     {
 
-        //Never delete this line!
+//Never delete this line!
         parent::__construct($InstanceID);
-        //These lines are parsed on Symcon Startup or Instance creation
-        //You cannot use variables here. Just static values.
+//These lines are parsed on Symcon Startup or Instance creation
+//You cannot use variables here. Just static values.
+        //Register Variables
+        $this->RegisterVariableBoolean('STATE', 'STATE', '~Switch');
+        $this->EnableAction("STATE");        
+        //Register Property
         $this->RegisterPropertyInteger("Repeat", 2);
 //13.04.2015 22:29:11 | FlowHandler | Could not forward data to instance #41762: 
 //Fatal error: Call to undefined method ELROSwitchDIP::ConnectParent() in /usr/share/symcon/modules/ELRO/ELROBase.php on line 159        
-//        $this->ConnectParent("{E6D7692A-7F4C-441D-827B-64062CFE1C02}");
-
+        $this->ConnectParent("{E6D7692A-7F4C-441D-827B-64062CFE1C02}");
 //DUMMY
         $this->fKernelRunlevel = KR_READY;
     }
 
     public function ApplyChanges()
     {
-        //Never delete this line!
+//Never delete this line!
         parent::ApplyChanges();
 //Testing
 //        $this->DoSend(true);
@@ -178,19 +181,21 @@ class ELROBase extends IPSModule
     {
         $Addresse = static::GetAdress();
         $Repeat = $this->ReadPropertyInteger("Repeat");
-
-        //hex2bin          
         IPS_LogMessage("ELRO_DoSend", "Address:" . $Address);
-        $Text = hex2bin('01002003CA000000');
-        $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "Buffer" => $Text)));
-        $Text = hex2bin('0200206060201812');
-        $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "Buffer" => $Text)));
-        $Text = hex2bin('03' . $Addresse . $Value . '00000000');
-        $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "Buffer" => $Text)));
-        $Text = hex2bin('0400000000000000');
-        $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "Buffer" => $Text)));
-        $Text = hex2bin('0500000000000000');
-        
+        while ($i < $Repeat)
+        {
+            $Text = hex2bin('01002003CA000000');
+            $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "Buffer" => $Text)));
+            $Text = hex2bin('0200206060201812');
+            $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "Buffer" => $Text)));
+            $Text = hex2bin('03' . $Addresse . $Value . '00000000');
+            $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "Buffer" => $Text)));
+            $Text = hex2bin('0400000000000000');
+            $this->SendDataToParent(json_encode(Array("DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}", "Buffer" => $Text)));
+            $Text = hex2bin('0500000000000000');
+            $i++;
+        }
+        return true;
     }
 
     /*              parent:=getParent();
@@ -222,10 +227,10 @@ class ELROBase extends IPSModule
 
 ################## ActionHandler
 
-    public function ActionHandler($StatusVariableIdent, $Value)
+    public function RequestAction($Ident, $Value)
     {
-        if ($StatusVariableIdent == 'STATE')
-            $this->SwitchHandler('STATE', $Value);
+        if ($Ident == 'STATE')
+            $this->SendSwitch($Value);
     }
 
 ################## PUBLIC
@@ -254,6 +259,7 @@ class ELROBase extends IPSModule
     public function ReceiveData($JSONString)
     {
 //        IPS_LogMessage(__CLASS__ . $this->InstanceID, print_r(bin2hex(json_decode($JSONString)->Buffer), true));
+//We dont need any Data...
     }
 
 //$send[] = hex2str("03".$addr.$hexvalue."00000000");   //0x03
@@ -265,7 +271,7 @@ class ELROBase extends IPSModule
 //0x14=aus
     protected function GetAdress()
     {
-        // must overwrite 
+// must overwrite 
     }
 
 ################## DUMMYS / WOARKAROUNDS - protected
