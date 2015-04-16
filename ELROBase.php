@@ -145,7 +145,7 @@ define('FOUND_UNSUPPORTED', 4); //Device is not supported by Module
 class ELROBase extends IPSModule
 {
 
-/*    public function __construct($InstanceID)
+    public function __construct($InstanceID)
     {
 
 //Never delete this line!
@@ -153,9 +153,13 @@ class ELROBase extends IPSModule
 //These lines are parsed on Symcon Startup or Instance creation
 //You cannot use variables here. Just static values.
 ////DUMMY
+        //Register Property
+        $this->RegisterPropertyInteger("Repeat", 2);
         //Register Variables
-
-}*/
+        $this->RegisterVariableBoolean('STATE', 'STATE', '~Switch');
+        $this->EnableAction("STATE");
+        $this->ConnectParent("{E6D7692A-7F4C-441D-827B-64062CFE1C02}");
+    }
 
     public function ApplyChanges()
     {

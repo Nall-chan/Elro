@@ -11,14 +11,10 @@ class ELROSwitchRS extends ELROBase
     public function __construct($InstanceID)
     {
         //Never delete this line!
-        IPSModule::__construct($InstanceID);
+        parent::__construct($InstanceID);
         //Register Property
         $this->RegisterPropertyString("CharAdr", "00");
         $this->RegisterPropertyString("ByteAdr", "00");
-        $this->RegisterPropertyInteger("Repeat", 2);
-        $this->RegisterVariableBoolean('STATE', 'STATE', '~Switch');
-        $this->EnableAction("STATE");
-        $this->ConnectParent("{E6D7692A-7F4C-441D-827B-64062CFE1C02}");        
     }
 
     protected function GetAdress()
