@@ -13,8 +13,8 @@ class ELROSwitchRS2 extends ELROBase
         //Never delete this line!
         IPSModule::__construct($InstanceID);
         //Register Property
-        $this->RegisterPropertyString('CharAdr', '15');
-        $this->RegisterPropertyString('ByteAdr', '15');
+        $this->RegisterPropertyString("CharAdr", "15");
+        $this->RegisterPropertyString("ByteAdr", "15");
         $this->RegisterPropertyInteger("Repeat", 2);
         $this->RegisterVariableBoolean('STATE', 'STATE', '~Switch');
         $this->EnableAction("STATE");
