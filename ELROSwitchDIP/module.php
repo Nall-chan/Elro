@@ -30,36 +30,36 @@ class ELROSwitchDIP extends ELROBase
     {
         IPS_LogMessage(__CLASS__, __FUNCTION__); //          
         $Adresse = 0;
-        if (!$this->ReadPropertyBoolean('Bit0'))
+        if (!$this->ReadPropertyBoolean("Bit0"))
             $Adresse = 1;
-        if (!$this->ReadPropertyBoolean('Bit1'))
+        if (!$this->ReadPropertyBoolean("Bit1"))
             $Adresse+=4;
         $Target = dechex($Adresse);
         $Adresse = 0;
-        if (!$this->ReadPropertyBoolean('Bit2'))
+        if (!$this->ReadPropertyBoolean("Bit2"))
             $Adresse = 1;
-        if (!$this->ReadPropertyBoolean('Bit3'))
+        if (!$this->ReadPropertyBoolean("Bit3"))
             $Adresse+=4;
         $Target.=dechex($Adresse);
         $Adresse = 0;
-        if (!$this->ReadPropertyBoolean('Bit4'))
+        if (!$this->ReadPropertyBoolean("Bit4"))
             $Adresse = 1;
-        if (!$this->ReadPropertyBoolean('Bit5'))
+        if (!$this->ReadPropertyBoolean("Bit5"))
             $Adresse+=4;
         $Target.=dechex($Adresse);
         $Adresse = 0;
-        if (!$this->ReadPropertyBoolean('Bit6'))
+        if (!$this->ReadPropertyBoolean("Bit6"))
             $Adresse = 1;
-        if (!$this->ReadPropertyBoolean('Bit7'))
+        if (!$this->ReadPropertyBoolean("Bit7"))
             $Adresse+=4;
         $Target.=dechex($Adresse);
         $Adresse = 0;
-        if (!$this->ReadPropertyBoolean('Bit8'))
+        if (!$this->ReadPropertyBoolean("Bit8"))
             $Adresse = 1;
-        if (!$this->ReadPropertyBoolean('Bit9'))
+        if (!$this->ReadPropertyBoolean("Bit9"))
             $Adresse+=4;
         $Target.=dechex($Adresse);
-        $this->SetSummary('0x' . $Target);
+        $this->SetSummary("0x" . $Target);
         return $Target;
     }
 

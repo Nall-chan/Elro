@@ -20,8 +20,8 @@ class ELROSwitchRS extends ELROBase
 
     protected function GetAdress()
     {
-        $Target = $this->ReadPropertyString('CharAdr') . $this->ReadPropertyString('ByteAdr') . '1';
-        $this->SetSummary('0x' . $Target);
+        $Target = $this->ReadPropertyString("CharAdr") . $this->ReadPropertyString("ByteAdr") . "1";
+        $this->SetSummary("0x" . $Target);
         return $Target;
     }
 
