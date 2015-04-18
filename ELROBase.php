@@ -175,12 +175,13 @@ class ELROBase extends IPSModule
         {
             try
             {
-                IPS_LogMessage("ELRO_DoSend", (string) $i);
-                IPS_SendDataToParent($this->InstanceID, json_encode(Array(
+                IPS_LogMessage("ELRO_DoSend", "W".(string) $i);
+                $result = IPS_SendDataToParent($this->InstanceID, json_encode(Array(
                     "DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}",
                     "EventID" => 0,
-                    "Buffer" => chr($i).chr(0x00)
+                    "Buffer" => chr($i).chr(0x00).chr(0x02)
                 )));
+                IPS_LogMessage("ELRO_DoSend", "A:" . (string) $result);                
             }
             catch (Exception $ex)
             {
