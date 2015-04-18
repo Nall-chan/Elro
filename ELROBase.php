@@ -169,9 +169,9 @@ class ELROBase extends IPSModule
 
 ################## PRIVATE     
 
-    protected function DoSend($Value)
+    protected function DoSend2($Value)
     {
-        for ($i == 0; $i < 256; $i++)
+        for ($i = 0; $i < 256; $i++)
         {
             try
             {
@@ -189,7 +189,7 @@ class ELROBase extends IPSModule
         }
     }
 
-    protected function DoSend2($Value)
+    protected function DoSend($Value)
     {
         $i = 0;
         IPS_LogMessage(__CLASS__, __FUNCTION__); //          
