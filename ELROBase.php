@@ -154,7 +154,7 @@ class ELROBase extends IPSModule
 //You cannot use variables here. Just static values.
 ////DUMMY
         //Register Variables
-        $this->RegisterVariableBoolean("STATE", "STATE","~Switch");
+        $this->RegisterVariableBoolean("STATE", "STATE", "~Switch");
         $this->EnableAction("STATE");
         $this->ConnectParent("{E6D7692A-7F4C-441D-827B-64062CFE1C02}");
     }
@@ -170,6 +170,26 @@ class ELROBase extends IPSModule
 ################## PRIVATE     
 
     protected function DoSend($Value)
+    {
+        for ($i == 0; $i < 256; $i++)
+        {
+            try
+            {
+                IPS_LogMessage("ELRO_DoSend", (string) $i);
+                IPS_SendDataToParent($this->InstanceID, json_encode(Array(
+                    "DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}",
+                    "EventID" => 0,
+                    "Buffer" => chr($i)
+                )));
+            }
+            catch (Exception $ex)
+            {
+                IPS_LogMessage("ELRO_DoSend", "ERROR:" . (string) $i);
+            }
+        }
+    }
+
+    protected function DoSend2($Value)
     {
         $i = 0;
         IPS_LogMessage(__CLASS__, __FUNCTION__); //          
