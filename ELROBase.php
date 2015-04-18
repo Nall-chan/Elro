@@ -171,7 +171,7 @@ class ELROBase extends IPSModule
 
     protected function DoSend($Value)
     {
-        for ($i = 0; $i < 256; $i++)
+        for ($i = -127; $i < 128; $i++)
         {
             try
             {
