@@ -169,9 +169,9 @@ class ELROBase extends IPSModule
 
 ################## PRIVATE     
 
-    protected function DoSend($Value)
+    protected function DoSend2($Value)
     {
-        for ($i = -127; $i < 128; $i++)
+        for ($i = 0; $i < 256; $i++)
         {
             try
             {
@@ -190,13 +190,13 @@ class ELROBase extends IPSModule
         }
     }
 
-    protected function DoSend2($Value)
+    protected function DoSend($Value)
     {
         $i = 0;
-        IPS_LogMessage(__CLASS__, __FUNCTION__); //          
+//        IPS_LogMessage(__CLASS__, __FUNCTION__); //          
         $Address = static::GetAdress();
         $Repeat = $this->ReadPropertyInteger("Repeat");
-        IPS_LogMessage("ELRO_DoSend", "Address:" . $Address);
+//        IPS_LogMessage("ELRO_DoSend", "Address:" . $Address);
         $SendData[] = hex2bin('01002003CA000000');
         $SendData[] = hex2bin('0200206060201812');
         $SendData[] = hex2bin('03' . $Address . $Value . '00000000');
@@ -255,7 +255,7 @@ class ELROBase extends IPSModule
 
     public function RequestAction($Ident, $Value)
     {
-        IPS_LogMessage(__CLASS__, __FUNCTION__ . ' Ident:.' . $Ident); //     
+//        IPS_LogMessage(__CLASS__, __FUNCTION__ . ' Ident:.' . $Ident); //     
         if ($Ident == 'STATE')
             $this->SendSwitch($Value);
     }
@@ -268,7 +268,7 @@ class ELROBase extends IPSModule
 
     public function SendSwitch($State)
     {
-        IPS_LogMessage(__CLASS__, __FUNCTION__); //          
+//        IPS_LogMessage(__CLASS__, __FUNCTION__); //          
         if (!$this->HasActiveParent())
             throw new Exception("Instance has no active Parent Instance!");
         else
@@ -307,7 +307,7 @@ class ELROBase extends IPSModule
 
     protected function HasActiveParent()
     {
-        IPS_LogMessage(__CLASS__, __FUNCTION__); //          
+//        IPS_LogMessage(__CLASS__, __FUNCTION__); //          
         $instance = IPS_GetInstance($this->InstanceID);
         if ($instance['ConnectionID'] > 0)
         {
@@ -320,17 +320,17 @@ class ELROBase extends IPSModule
 
     protected function SetStatus($data)
     {
-        IPS_LogMessage(__CLASS__, __FUNCTION__); //           
+//        IPS_LogMessage(__CLASS__, __FUNCTION__); //           
     }
 
     protected function RegisterTimer($data, $cata)
     {
-        IPS_LogMessage(__CLASS__, __FUNCTION__); //           
+        //IPS_LogMessage(__CLASS__, __FUNCTION__); //           
     }
 
     protected function SetTimerInterval($data, $cata)
     {
-        IPS_LogMessage(__CLASS__, __FUNCTION__); //           
+        //IPS_LogMessage(__CLASS__, __FUNCTION__); //           
     }
 
     protected function LogMessage($data, $cata)
@@ -340,7 +340,7 @@ class ELROBase extends IPSModule
 
     protected function SetSummary($data)
     {
-        IPS_LogMessage(__CLASS__, __FUNCTION__ . "Data:" . $data); //                   
+        //IPS_LogMessage(__CLASS__, __FUNCTION__ . "Data:" . $data); //                   
     }
 
 }
