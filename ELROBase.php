@@ -287,8 +287,7 @@ class ELROBase extends IPSModule
 
     public function ReceiveData($JSONString)
     {
-//        IPS_LogMessage(__CLASS__ . $this->InstanceID, print_r(bin2hex(json_decode($JSONString)->Buffer), true));
-//We dont need any Data...
+
     }
 
 //$send[] = hex2str("03".$addr.$hexvalue."00000000");   //0x03
