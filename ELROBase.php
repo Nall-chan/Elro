@@ -266,7 +266,7 @@ class ELROBase extends IPSModule
      * Using the custom prefix this function will be callable from PHP and JSON-RPC through:
      */
 
-    public function SendSwitch($State)
+    protected function SendSwitch($State)
     {
 //        IPS_LogMessage(__CLASS__, __FUNCTION__); //          
         if (!$this->HasActiveParent())

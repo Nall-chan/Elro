@@ -25,6 +25,10 @@ class ELROSwitchRS3 extends ELROBase
         return $Target;
     }
 
+    public function SendSwitch($State)
+    {
+        parent::SendSwitch($State);
+    }
 }
 
 ?>

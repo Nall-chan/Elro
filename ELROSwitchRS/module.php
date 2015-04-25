@@ -24,6 +24,10 @@ class ELROSwitchRS extends ELROBase
         $this->SetSummary("0x" . $Target);
         return $Target;
     }
+    public function SendSwitch($State)
+    {
+        parent::SendSwitch($State);
+    }
 
 }
 
