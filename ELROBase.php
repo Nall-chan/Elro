@@ -285,10 +285,10 @@ class ELROBase extends IPSModule
         }
     }
 
-    public function ReceiveData($JSONString)
+    /*public function ReceiveData($JSONString)
     {
 
-    }
+    }*/
 
 //$send[] = hex2str("03".$addr.$hexvalue."00000000");   //0x03
 //0x0003 // Gerät 1 = Alle
