@@ -194,7 +194,7 @@ class ELROBase extends IPSModule
     {
         $i = 0;
 //        IPS_LogMessage(__CLASS__, __FUNCTION__); //          
-        $Address = static::GetAdress();
+        $Address = $this->GetAdress();
         $Repeat = $this->ReadPropertyInteger("Repeat");
 //        IPS_LogMessage("ELRO_DoSend", "Address:" . $Address);
         $SendData[] = hex2bin('01002003CA000000');
