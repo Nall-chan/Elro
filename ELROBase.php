@@ -168,7 +168,7 @@ class ELROBase extends IPSModule
     }
 
 ################## PRIVATE     
-
+/*
     protected function DoSend2($Value)
     {
         for ($i = 0; $i < 256; $i++)
@@ -189,7 +189,7 @@ class ELROBase extends IPSModule
             }
         }
     }
-
+*/
     protected function DoSend($Value)
     {
         $i = 0;
@@ -211,7 +211,7 @@ class ELROBase extends IPSModule
                     IPS_SendDataToParent($this->InstanceID, json_encode(Array(
                         "DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}",
                         "EventID" => 0,
-                        "Buffer" => $Data)));
+                        "Buffer" => utf8_encode($Data))));
                 }
                 catch (Exception $ex)
                 {
