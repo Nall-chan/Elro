@@ -8,10 +8,10 @@ class ELROSwitchRS2 extends ELROBase
     const on = '1';
     const off = '0';
 
-    public function __construct($InstanceID)
+    public function Create()
     {
         //Never delete this line!
-        parent::__construct($InstanceID);
+        parent::Create();
         //Register Property
         $this->RegisterPropertyString("CharAdr", "15");
         $this->RegisterPropertyString("ByteAdr", "15");
@@ -24,7 +24,7 @@ class ELROSwitchRS2 extends ELROBase
         $this->SetSummary("0x" . $Target);
         return $Target;
     }
-    public function SendSwitch($State)
+    public function SendSwitch(boolean $State)
     {
         parent::SendSwitch($State);
     }

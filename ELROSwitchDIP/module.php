@@ -8,10 +8,10 @@ class ELROSwitchDIP extends ELROBase
     const on = '5';
     const off = '4';
 
-    public function __construct($InstanceID)
+    public function Create()
     {
         //Never delete this line!
-        parent::__construct($InstanceID);
+        parent::Create();
         //Register Property
         $this->RegisterPropertyBoolean("Bit0", false);
         $this->RegisterPropertyBoolean("Bit1", false);
@@ -62,7 +62,8 @@ class ELROSwitchDIP extends ELROBase
         $this->SetSummary("0x" . $Target);
         return $Target;
     }
-    public function SendSwitch($State)
+
+    public function SendSwitch(boolean $State)
     {
         parent::SendSwitch($State);
     }
