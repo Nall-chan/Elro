@@ -290,10 +290,10 @@ class ELROBase extends IPSModule
     }*/
 
 //$send[] = hex2str("03".$addr.$hexvalue."00000000");   //0x03
-//0x0003 // Ger‰t 1 = Alle
-//0x3CC1 // Ger‰t 1001 = Steckdose 1
-//0x3CCC // Ger‰t 1002 = Steckdose 2
-//0x3CCF // Ger‰t 1003 = Steckdose 3
+//0x0003 // Ger√§t 1 = Alle
+//0x3CC1 // Ger√§t 1001 = Steckdose 1
+//0x3CCC // Ger√§t 1002 = Steckdose 2
+//0x3CCF // Ger√§t 1003 = Steckdose 3
 //0x15 = ein
 //0x14=aus
     protected function GetAdress()

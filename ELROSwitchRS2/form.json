@@ -8,7 +8,7 @@
                 {
                     "name": "CharAdr",
                     "type": "Select",
-                    "caption": "Römische Ziffer",
+                    "caption": "RÃ¶mische Ziffer",
                     "options": [
                         {
                             "label": "I",
