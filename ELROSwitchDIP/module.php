@@ -1,6 +1,6 @@
 <?
 
-require_once(__DIR__ . "/../ELROBase.php");  // ELROBase Klasse
+require_once(__DIR__ . DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR."ELROBase.php");  // ELROBase Klasse
 
 class ELROSwitchDIP extends ELROBase
 {
@@ -10,9 +10,7 @@ class ELROSwitchDIP extends ELROBase
 
     public function Create()
     {
-        //Never delete this line!
         parent::Create();
-        //Register Property
         $this->RegisterPropertyBoolean("Bit0", false);
         $this->RegisterPropertyBoolean("Bit1", false);
         $this->RegisterPropertyBoolean("Bit2", false);
@@ -25,10 +23,14 @@ class ELROSwitchDIP extends ELROBase
         $this->RegisterPropertyBoolean("Bit9", false);
         $this->RegisterPropertyInteger("Repeat", 2);
     }
-
+    
+    public function ApplyChanges()
+    {
+        parent::ApplyChanges();
+    }
+    
     protected function GetAdress()
     {
-        // IPS_LogMessage(__CLASS__, __FUNCTION__); //          
         $Adresse = 0;
         if (!$this->ReadPropertyBoolean("Bit0"))
             $Adresse = 1;
@@ -59,7 +61,6 @@ class ELROSwitchDIP extends ELROBase
         if (!$this->ReadPropertyBoolean("Bit9"))
             $Adresse+=4;
         $Target.=dechex($Adresse);
-        $this->SetSummary("0x" . $Target);
         return $Target;
     }
 

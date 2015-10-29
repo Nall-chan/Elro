@@ -1,6 +1,6 @@
 <?
 
-require_once(__DIR__ . "/../ELROBase.php");  // ELROBase Klasse
+require_once(__DIR__ . DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR."ELROBase.php");  // ELROBase Klasse
 
 class ELROSwitchRS3 extends ELROBase
 {
@@ -10,18 +10,20 @@ class ELROSwitchRS3 extends ELROBase
 
     public function Create()
     {
-        //Never delete this line!
         parent::Create();
-        //Register Property
         $this->RegisterPropertyString("CharAdr", "D5");
         $this->RegisterPropertyString("ByteAdr", "D4");
         $this->RegisterPropertyInteger("Repeat", 2);
     }
 
+    public function ApplyChanges()
+    {
+        parent::ApplyChanges();
+    }
+
     protected function GetAdress()
     {
         $Target = $this->ReadPropertyString("CharAdr") . $this->ReadPropertyString("ByteAdr") . "5";
-        $this->SetSummary("0x" . $Target);
         return $Target;
     }
 
