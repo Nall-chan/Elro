@@ -208,7 +208,7 @@ class ELROBase extends IPSModule
 
 ################## PUBLIC
 
-    protected function SendSwitch($State)
+    protected function SendSwitch( boolean $State)
     {
         if (!$this->HasActiveParent())
         {
