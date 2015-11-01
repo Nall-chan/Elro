@@ -225,7 +225,7 @@ class ELROBase extends IPSModule
                 SetValueBoolean($this->GetIDForIdent('STATE'), $State);
             else
             {
-                trigger_error('Fehler beim senden!', E_USER_ERROR);
+                trigger_error('Fehler beim senden!', E_USER_NOTICE);
                 return false;
             }
         }
