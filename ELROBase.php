@@ -171,7 +171,7 @@ class ELROBase extends IPSModule
     protected function DoSend($Value)
     {
         $i = 0;
-
+        $Address = $this->GetAdress();
         $Repeat = $this->ReadPropertyInteger("Repeat");
         $SendData[] = hex2bin('01002003CA000000');
         $SendData[] = hex2bin('0200206060201812');
