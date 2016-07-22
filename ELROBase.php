@@ -159,6 +159,7 @@ class ELROBase extends IPSModule
     public function ApplyChanges()
     {
         parent::ApplyChanges();
+        $this->SetReceiveDataFilter(".9999999999.");
         if (IPS_GetKernelRunlevel() == KR_READY)
         {
             $Address = $this->GetAdress();
@@ -250,15 +251,6 @@ class ELROBase extends IPSModule
         return false;
     }
 
-    protected function LogMessage($data, $cata)
-    {
-        
-    }
-
-    protected function SetSummary($data)
-    {
-        
-    }
 
 }
 
