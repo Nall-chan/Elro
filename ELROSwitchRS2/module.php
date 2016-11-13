@@ -31,7 +31,11 @@ class ELROSwitchRS2 extends ELROBase
     {
         parent::SendSwitch($State);
     }
-
+    
+    public function SendSwitchRS2(boolean $State)
+    {
+        parent::SendSwitch($State);
+    }
 }
 
 ?>

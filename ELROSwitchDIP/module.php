@@ -1,6 +1,6 @@
 <?
 
-require_once(__DIR__ . DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR."ELROBase.php");  // ELROBase Klasse
+require_once(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "ELROBase.php");  // ELROBase Klasse
 
 class ELROSwitchDIP extends ELROBase
 {
@@ -23,12 +23,12 @@ class ELROSwitchDIP extends ELROBase
         $this->RegisterPropertyBoolean("Bit9", false);
         $this->RegisterPropertyInteger("Repeat", 2);
     }
-    
+
     public function ApplyChanges()
     {
         parent::ApplyChanges();
     }
-    
+
     protected function GetAdress()
     {
         $Adresse = 0;
@@ -65,6 +65,11 @@ class ELROSwitchDIP extends ELROBase
     }
 
     public function SendSwitch(boolean $State)
+    {
+        parent::SendSwitch($State);
+    }
+
+    public function SendSwitchDIP(boolean $State)
     {
         parent::SendSwitch($State);
     }
