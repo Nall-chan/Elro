@@ -3,12 +3,12 @@
             [
                 {
                     "type": "Label",
-                    "label": "Adresse hier einstellen:"
+                    "label": "Config adresse here:"
                 },
                 {
                     "name": "CharAdr",
                     "type": "Select",
-                    "caption": "Römische Ziffer",
+                    "caption": "Roman numeral",
                     "options": [
                         {
                             "label": "I",
@@ -31,7 +31,7 @@
                 {
                     "name": "ByteAdr",
                     "type": "Select",
-                    "caption": "Ziffer",
+                    "caption": "Number",
                     "options": [
                         {
                             "label": "1",
@@ -54,7 +54,7 @@
                 {
                     "name": "Repeat",
                     "type": "Select",
-                    "caption": "Sende-Zyklen",
+                    "caption": "Repeat code",
                     "options": [
                         {
                             "label": "1",
@@ -74,5 +74,17 @@
                         }
                     ]
                 }
-            ]
+            ],
+    "actions":
+            [
+                {
+                    "type": "Button",
+                    "label": "ON",
+                    "onClick": "ELRO_SendSwitchRS2($id, true);"
+                },
+                {
+                    "type": "Button",
+                    "label": "OFF",
+                    "onClick": "ELRO_SendSwitchRS2($id, false);"
+                }]
 }

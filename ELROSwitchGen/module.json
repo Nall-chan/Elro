@@ -1,0 +1,11 @@
+{
+    "id": "{C336B7C1-0F32-4601-B5ED-376546FC1779}",
+    "name": "ELROSwitchGen",
+    "type": 3,
+    "vendor": "ELRO",
+    "aliases": ["Intertechno Generic"],
+    "parentRequirements": ["{4A550680-80C5-4465-971E-BBF83205A02B}"],
+    "childRequirements": [],
+    "implemented": ["{FD7FF32C-331E-4F6B-8BA8-F73982EF5AA7}"],
+    "prefix": "ELRO"
+}

@@ -1,13 +1,35 @@
 <?
 
+/**
+ * @addtogroup ipselro
+ * @{
+ *
+ * @package       IPSElro
+ * @file          module.php
+ * @author        Michael Tröger <micha@nall-chan.net>
+ * @copyright     2016 Michael Tröger
+ * @license       https://creativecommons.org/licenses/by-nc-sa/4.0/ CC BY-NC-SA 4.0
+ * @version       1.0
+ *
+ */
 require_once(__DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "ELROBase.php");  // ELROBase Klasse
 
+/**
+ * ELROSwitchDIP ermöglicht das Steuern von 433Mhz Geräten mit DIP-Schaltern.
+ * Erweitert ELROBase 
+ * 
+ */
 class ELROSwitchDIP extends ELROBase
 {
 
-    const on = '5';
-    const off = '4';
+    protected $on = '5';
+    protected $off = '4';
 
+    /**
+     * Interne Funktion des SDK.
+     *
+     * @access public
+     */
     public function Create()
     {
         parent::Create();
@@ -24,23 +46,23 @@ class ELROSwitchDIP extends ELROBase
         $this->RegisterPropertyInteger("Repeat", 2);
     }
 
-    public function ApplyChanges()
-    {
-        parent::ApplyChanges();
-    }
-
+    /**
+     * Liefert die Adresse des Aktor im Hex-Format.
+     *
+     * @access protected
+     */
     protected function GetAdress()
     {
         $Adresse = 0;
-        if (!$this->ReadPropertyBoolean("Bit0"))
+        if (!$this->ReadPropertyBoolean("Bit8"))
             $Adresse = 1;
-        if (!$this->ReadPropertyBoolean("Bit1"))
+        if (!$this->ReadPropertyBoolean("Bit9"))
             $Adresse+=4;
         $Target = dechex($Adresse);
         $Adresse = 0;
-        if (!$this->ReadPropertyBoolean("Bit2"))
+        if (!$this->ReadPropertyBoolean("Bit6"))
             $Adresse = 1;
-        if (!$this->ReadPropertyBoolean("Bit3"))
+        if (!$this->ReadPropertyBoolean("Bit7"))
             $Adresse+=4;
         $Target.=dechex($Adresse);
         $Adresse = 0;
@@ -50,30 +72,42 @@ class ELROSwitchDIP extends ELROBase
             $Adresse+=4;
         $Target.=dechex($Adresse);
         $Adresse = 0;
-        if (!$this->ReadPropertyBoolean("Bit6"))
+        if (!$this->ReadPropertyBoolean("Bit2"))
             $Adresse = 1;
-        if (!$this->ReadPropertyBoolean("Bit7"))
+        if (!$this->ReadPropertyBoolean("Bit3"))
             $Adresse+=4;
         $Target.=dechex($Adresse);
         $Adresse = 0;
-        if (!$this->ReadPropertyBoolean("Bit8"))
+        if (!$this->ReadPropertyBoolean("Bit0"))
             $Adresse = 1;
-        if (!$this->ReadPropertyBoolean("Bit9"))
+        if (!$this->ReadPropertyBoolean("Bit1"))
             $Adresse+=4;
         $Target.=dechex($Adresse);
         return $Target;
     }
 
-    public function SendSwitch(boolean $State)
+    /**
+     * IPS-Instanz-Funktion ELRO_SendSwitch.
+     * Schaltet den Aktor ein oder aus und führt die Statusvariable nach.
+     *
+     * @access public
+     */
+    public function SendSwitch(bool $State)
     {
         parent::SendSwitch($State);
     }
 
-    public function SendSwitchDIP(boolean $State)
+    /**
+     * IPS-Instanz-Funktion ELRO_SendSwitchDIP.
+     * Schaltet den Aktor ein oder aus und führt die Statusvariable nach.
+     *
+     * @access public
+     */
+    public function SendSwitchDIP(bool $State)
     {
         parent::SendSwitch($State);
     }
 
 }
 
-?>
+/** @} */

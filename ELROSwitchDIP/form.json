@@ -3,7 +3,7 @@
             [
                 {
                     "type": "Label",
-                    "label": "DIP-Schalter auf Stellung ON hier makieren:"
+                    "label": "Mark all 'ON' DIP-Swtich:"
                 },
                 {
                     "name": "Bit9",
@@ -58,7 +58,7 @@
                 {
                     "name": "Repeat",
                     "type": "Select",
-                    "caption": "Sende-Zyklen",
+                    "caption": "Repeat code",
                     "options": [
                         {
                             "label": "1",
@@ -78,5 +78,17 @@
                         }
                     ]
                 }
-            ]
+            ],
+    "actions":
+            [
+                {
+                    "type": "Button",
+                    "label": "ON",
+                    "onClick": "ELRO_SendSwitchDIP($id, true);"
+                },
+                {
+                    "type": "Button",
+                    "label": "OFF",
+                    "onClick": "ELRO_SendSwitchDIP($id, false);"
+                }]
 }
