@@ -9,15 +9,15 @@
  * @author        Michael Tröger <micha@nall-chan.net>
  * @copyright     2016 Michael Tröger
  * @license       https://creativecommons.org/licenses/by-nc-sa/4.0/ CC BY-NC-SA 4.0
- * @version       1.0
+ * @version       2.03
  *
  */
 if (@constant('IPS_BASE') == null) //Nur wenn Konstanten noch nicht bekannt sind.
 {
 // --- BASE MESSAGE
     define('IPS_BASE', 10000);                             //Base Message
-    define('IPS_KERNELSHUTDOWN', IPS_BASE + 1);            //Pre Shutdown Message, Runlevel UNINIT Follows
-    define('IPS_KERNELSTARTED', IPS_BASE + 2);             //Post Ready Message
+    define('IPS_KERNELSTARTED', IPS_BASE + 1);             //Post Ready Message
+    define('IPS_KERNELSHUTDOWN', IPS_BASE + 2);            //Pre Shutdown Message, Runlevel UNINIT Follows
 // --- KERNEL
     define('IPS_KERNELMESSAGE', IPS_BASE + 100);           //Kernel Message
     define('KR_CREATE', IPS_KERNELMESSAGE + 1);            //Kernel is beeing created
@@ -199,31 +199,31 @@ abstract class ELROBase extends IPSModule
             switch ($Address[$index])
             {
                 case "0":
-                    $bin.="00";
+                    $bin .= "00";
                     break;
                 case "1":
-                    $bin.="0F";
+                    $bin .= "0F";
                     break;
                 case "3":
-                    $bin.="01";
+                    $bin .= "01";
                     break;
                 case "4":
-                    $bin.="F0";
+                    $bin .= "F0";
                     break;
                 case "C":
-                    $bin.="10";
+                    $bin .= "10";
                     break;
                 case "5":
-                    $bin.="FF";
+                    $bin .= "FF";
                     break;
                 case "7":
-                    $bin.="F1";
+                    $bin .= "F1";
                     break;
                 case "D":
-                    $bin.="1F";
+                    $bin .= "1F";
                     break;
                 case "F":
-                    $bin.="11";
+                    $bin .= "11";
                     break;
             }
         }
@@ -293,7 +293,7 @@ abstract class ELROBase extends IPSModule
     protected function SendSwitch(bool $State)
     {
         if (!$this->HasActiveParent())
-            trigger_error("Instance has no active Parent Instance!", E_USER_NOTICE);
+            trigger_error($this->Translate("Instance has no active parent instance!"), E_USER_NOTICE);
         else
         {
             $this->Address = $this->GetAdress();
@@ -307,7 +307,7 @@ abstract class ELROBase extends IPSModule
                 return true;
             }
             else
-                trigger_error('Fehler beim senden!', E_USER_NOTICE);
+                trigger_error($this->Translate("Error on transmit!"), E_USER_NOTICE);
         }
         return false;
     }

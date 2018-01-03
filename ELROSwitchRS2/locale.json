@@ -4,7 +4,9 @@
             "Config adresse here:": "Adresse hier einstellen:",
             "Roman numeral": "Römische Ziffer",
             "Number": "Ziffer",
-            "Repeat code": "Sende-Zyklen"
+            "Repeat code": "Sende-Zyklen",
+            "Instance has no active parent instance!": "Fehler keine aktive Parent Instanz!",
+            "Error on transmit!": "Fehler beim Senden!"
         }
     }
 }

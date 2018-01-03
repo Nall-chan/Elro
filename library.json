@@ -3,11 +3,11 @@
     "author": "Michael Tr\u00f6ger",
     "name": "ELRO Library",
     "url": "https://github.com/Nall-chan/IPSElro",
-    "version": "2.02",
-    "build": 112,
-    "date": 1483732390,
-    "title": "ELRO HE853 / AB600USB (433MHz-Geräte)",
-    "description": "Erweitert IPS um diverse Instanzen für 433Mhz Funksteckdosen / Aktoren welche in Verbindung mir dem USB-Stick ELRO HE853 bzw. AB600USB geschaltet werden.",
-    "tags": ["433Mhz", "Funk", "Intertechno", "Telecontrol", "FLS", "Elro", "Pollin", "Wetekom", "Westfalia", "Hauscode", "Conrad", "Funksteckdosen"],
-    "req_ips_version": "4.1"
+    "compatibility": {
+        "version": "4.3",
+        "date": 1498241677
+    },
+    "version": "2.03",
+    "build": 122,
+    "date": 1498241677
 }

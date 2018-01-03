@@ -1,3 +1,8 @@
+[![Version](https://img.shields.io/badge/Symcon-PHPModul-red.svg)](https://www.symcon.de/service/dokumentation/entwicklerbereich/sdk-tools/sdk-php/)
+[![Version](https://img.shields.io/badge/Modul%20Version-2.03-blue.svg)]()
+[![Version](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-green.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)  
+[![Version](https://img.shields.io/badge/Symcon%20Version-4.3%20%3E-green.svg)](https://www.symcon.de/forum/threads/30857-IP-Symcon-4-3-%28Stable%29-Changelog)
+
 # IPSELRO
 IPS-Modul für den ELRO HE853 / AB600 USB-Stick (433MHz-Geräte)  
 
@@ -28,13 +33,14 @@ IPS-Modul für den ELRO HE853 / AB600 USB-Stick (433MHz-Geräte)
 
 ## 2. Voraussetzungen
 
-   Der USB-Stick HE853 bzw. AB600 von Elro.  
-   Ein freie USB-Anschluß an dem Syste, wo IPS betrieben wird.  
+   - IPS 4.3 oder höher  
+   - Der USB-Stick HE853 bzw. AB600 von Elro.  
+   - Ein freie USB-Anschluß an dem Syste, wo IPS betrieben wird.  
 
 ## 3. Software-Installation
 
-### IPS 4.1:
-   Über das Modul-Control folgende URL hinzufügen.  
+**IPS 4.3:**  
+   Bei privater Nutzung: Über das 'Module-Control' in IPS folgende URL hinzufügen.  
    `git://github.com/Nall-chan/IPSElro.git`  
 
    **Bei kommerzieller Nutzung (z.B. als Errichter oder Integrator) wenden Sie sich bitte an den Autor.**  
@@ -160,7 +166,16 @@ GUIDs der Instanzen (z.B. wenn Instanz per PHP angelegt werden soll):
 
 ## 8. Anhang
 
+### Spenden:  
+  
+  Die Library ist für die nicht kommzerielle Nutzung kostenlos, Schenkungen als Unterstützung für den Autor werden hier akzeptiert:  
+
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=G2SLW2MEMQZH2" target="_blank"><img src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donate_LG.gif" border="0" /></a>
+
 ### Changlog:
+
+**2.03:**  
+Neu: Übersetzungen für IPS 4.3
 
 **2.02:**  
 Neu: Intertechno Generic Gerät  
