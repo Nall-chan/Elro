@@ -1,4 +1,4 @@
-<?
+<?php
 
 /**
  * @addtogroup ipselro
@@ -16,12 +16,11 @@ require_once(__DIR__ . "/../libs/ELROBase.php");  // ELROBase Klasse
 
 /**
  * ELROSwitchDIP ermöglicht das Steuern von 433Mhz Geräten vom Typ FLS mit Drehschaltern.
- * Erweitert ELROBase 
- * 
+ * Erweitert ELROBase
+ *
  */
 class ELROSwitchRS2 extends ELROBase
 {
-
     protected $on = '1';
     protected $off = '0';
 
@@ -70,7 +69,6 @@ class ELROSwitchRS2 extends ELROBase
     {
         parent::SendSwitch($State);
     }
-
 }
 
 /** @} */
