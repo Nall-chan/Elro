@@ -1,4 +1,4 @@
-<?
+<?php
 
 /**
  * @addtogroup ipselro
@@ -16,12 +16,11 @@ require_once(__DIR__ . "/../libs/ELROBase.php");  // ELROBase Klasse
 
 /**
  * ELROSwitchDIP ermöglicht das Steuern von 433Mhz Geräten von REV mit Drehschaltern.
- * Erweitert ELROBase 
- * 
+ * Erweitert ELROBase
+ *
  */
 class ELROSwitchRS3 extends ELROBase
 {
-
     protected $on = '5';
     protected $off = '0';
 
@@ -69,7 +68,6 @@ class ELROSwitchRS3 extends ELROBase
     {
         parent::SendSwitch($State);
     }
-
 }
 
 /** @} */

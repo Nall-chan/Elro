@@ -1,4 +1,4 @@
-<?
+<?php
 
 /**
  * @addtogroup ipselro
@@ -16,12 +16,11 @@ require_once(__DIR__ . "/../libs/ELROBase.php");  // ELROBase Klasse
 
 /**
  * ELROSwitchRS ermöglicht das Steuern von 433Mhz Intertechno-Geräten mit Drehschaltern.
- * Erweitert ELROBase 
- * 
+ * Erweitert ELROBase
+ *
  */
 class ELROSwitchRS extends ELROBase
 {
-
     protected $on = '5';
     protected $off = '4';
 
@@ -70,7 +69,6 @@ class ELROSwitchRS extends ELROBase
     {
         parent::SendSwitch($State);
     }
-
 }
 
 /** @} */

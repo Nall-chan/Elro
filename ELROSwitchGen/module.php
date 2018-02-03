@@ -1,4 +1,4 @@
-<?
+<?php
 
 /**
  * @addtogroup ipselro
@@ -16,12 +16,11 @@ require_once(__DIR__ . "/../libs/ELROBase.php");  // ELROBase Klasse
 
 /**
  * ELROSwitchGen ermöglicht das Steuern von 433Mhz Intertechno-Geräten.
- * Erweitert ELROBase 
- * 
+ * Erweitert ELROBase
+ *
  */
 class ELROSwitchGen extends ELROBase
 {
-
     protected $on;
     protected $off;
 
@@ -46,21 +45,22 @@ class ELROSwitchGen extends ELROBase
      */
     public function ApplyChanges()
     {
-
-        if (preg_match("/^[01F]{10}$/", trim($this->ReadPropertyString("Code"))) !== 1)
+        if (preg_match("/^[01F]{10}$/", trim($this->ReadPropertyString("Code"))) !== 1) {
             IPS_SetProperty($this->InstanceID, "Code", "0000000000");
-        if (preg_match("/^[01F]{2}$/", trim($this->ReadPropertyString("CodeOn"))) !== 1)
+        }
+        if (preg_match("/^[01F]{2}$/", trim($this->ReadPropertyString("CodeOn"))) !== 1) {
             IPS_SetProperty($this->InstanceID, "CodeOn", "FF");
-        if (preg_match("/^[01F]{2}$/", trim($this->ReadPropertyString("CodeOff"))) !== 1)
+        }
+        if (preg_match("/^[01F]{2}$/", trim($this->ReadPropertyString("CodeOff"))) !== 1) {
             IPS_SetProperty($this->InstanceID, "CodeOff", "F0");
+        }
 
-        if (IPS_HasChanges($this->InstanceID))
-        {
+        if (IPS_HasChanges($this->InstanceID)) {
             echo "Config invalid";
             IPS_ApplyChanges($this->InstanceID);
-        }
-        else
+        } else {
             parent::ApplyChanges();
+        }
     }
 
     /**
@@ -70,15 +70,13 @@ class ELROSwitchGen extends ELROBase
      */
     protected function GetAdress()
     {
-
         $on = trim($this->ReadPropertyString("CodeOn"));
         $this->on = $this->ToHex($on);
         $off = trim($this->ReadPropertyString("CodeOff"));
         $this->off = $this->ToHex($off);
         $Target = "";
         $Address = trim($this->ReadPropertyString("Code"));
-        for ($index = 0; $index < strlen($Address); $index = $index + 2)
-        {
+        for ($index = 0; $index < strlen($Address); $index = $index + 2) {
             $Target .= $this->ToHex($Address[$index] . $Address[$index + 1]);
         }
         return $Target;
@@ -91,8 +89,7 @@ class ELROSwitchGen extends ELROBase
      */
     private function ToHex($Char)
     {
-        switch ($Char)
-        {
+        switch ($Char) {
             case "00":
                 return "0";
             case "0F":
@@ -135,7 +132,6 @@ class ELROSwitchGen extends ELROBase
     {
         return parent::SendSwitch($State);
     }
-
 }
 
 /** @} */
