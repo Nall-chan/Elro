@@ -1,25 +1,25 @@
 <?php
 
+declare(strict_types=1);
 /**
  * @addtogroup ipselro
  * @{
  *
- * @package       IPSElro
  * @file          module.php
+ *
  * @author        Michael Tröger <micha@nall-chan.net>
  * @copyright     2018 Michael Tröger
  * @license       https://creativecommons.org/licenses/by-nc-sa/4.0/ CC BY-NC-SA 4.0
- * @version       2.04
  *
+ * @version       2.04
  */
-
-if (!defined("IPS_BASE")) {
+if (!defined('IPS_BASE')) {
     // --- BASE MESSAGE
     define('IPS_BASE', 10000);                             //Base Message
     define('IPS_KERNELSTARTED', IPS_BASE + 1);             //Post Ready Message
     define('IPS_KERNELSHUTDOWN', IPS_BASE + 2);            //Pre Shutdown Message, Runlevel UNINIT Follows
 }
-if (!defined("IPS_KERNELMESSAGE")) {
+if (!defined('IPS_KERNELMESSAGE')) {
     // --- KERNEL
     define('IPS_KERNELMESSAGE', IPS_BASE + 100);           //Kernel Message
     define('KR_CREATE', IPS_KERNELMESSAGE + 1);            //Kernel is beeing created
@@ -28,7 +28,7 @@ if (!defined("IPS_KERNELMESSAGE")) {
     define('KR_UNINIT', IPS_KERNELMESSAGE + 4);            //Got Shutdown Message, unloading all stuff
     define('KR_SHUTDOWN', IPS_KERNELMESSAGE + 5);          //Uninit Complete, Destroying Kernel Inteface
 }
-if (!defined("IPS_LOGMESSAGE")) {
+if (!defined('IPS_LOGMESSAGE')) {
     // --- KERNEL LOGMESSAGE
     define('IPS_LOGMESSAGE', IPS_BASE + 200);              //Logmessage Message
     define('KL_MESSAGE', IPS_LOGMESSAGE + 1);              //Normal Message                      | FG: Black | BG: White  | STLYE : NONE
@@ -39,13 +39,13 @@ if (!defined("IPS_LOGMESSAGE")) {
     define('KL_DEBUG', IPS_LOGMESSAGE + 6);                //Debug Informations + Script Results | FG: Grey  | BG: White  | STLYE : NONE
     define('KL_CUSTOM', IPS_LOGMESSAGE + 7);               //User Message                        | FG: Black | BG: White  | STLYE : NONE
 }
-if (!defined("IPS_MODULEMESSAGE")) {
+if (!defined('IPS_MODULEMESSAGE')) {
     // --- MODULE LOADER
     define('IPS_MODULEMESSAGE', IPS_BASE + 300);           //ModuleLoader Message
     define('ML_LOAD', IPS_MODULEMESSAGE + 1);              //Module loaded
     define('ML_UNLOAD', IPS_MODULEMESSAGE + 2);            //Module unloaded
 }
-if (!defined("IPS_OBJECTMESSAGE")) {
+if (!defined('IPS_OBJECTMESSAGE')) {
     // --- OBJECT MANAGER
     define('IPS_OBJECTMESSAGE', IPS_BASE + 400);
     define('OM_REGISTER', IPS_OBJECTMESSAGE + 1);          //Object was registered
@@ -63,7 +63,7 @@ if (!defined("IPS_OBJECTMESSAGE")) {
     define('OM_CHILDREMOVED', IPS_OBJECTMESSAGE + 13);     //Child for Object was removed
     define('OM_CHANGEIDENT', IPS_OBJECTMESSAGE + 14);      //Ident was Changed
 }
-if (!defined("IPS_INSTANCEMESSAGE")) {
+if (!defined('IPS_INSTANCEMESSAGE')) {
     // --- INSTANCE MANAGER
     define('IPS_INSTANCEMESSAGE', IPS_BASE + 500);         //Instance Manager Message
     define('IM_CREATE', IPS_INSTANCEMESSAGE + 1);          //Instance created
@@ -77,7 +77,7 @@ if (!defined("IPS_INSTANCEMESSAGE")) {
     define('IM_SEARCHPROGRESS', IPS_INSTANCEMESSAGE + 9);  //Searching progress in %
     define('IM_SEARCHCOMPLETE', IPS_INSTANCEMESSAGE + 10); //Searching is complete
 }
-if (!defined("IPS_VARIABLEMESSAGE")) {
+if (!defined('IPS_VARIABLEMESSAGE')) {
     // --- VARIABLE MANAGER
     define('IPS_VARIABLEMESSAGE', IPS_BASE + 600);              //Variable Manager Message
     define('VM_CREATE', IPS_VARIABLEMESSAGE + 1);               //Variable Created
@@ -86,7 +86,7 @@ if (!defined("IPS_VARIABLEMESSAGE")) {
     define('VM_CHANGEPROFILENAME', IPS_VARIABLEMESSAGE + 4);    //On Profile Name Change
     define('VM_CHANGEPROFILEACTION', IPS_VARIABLEMESSAGE + 5);  //On Profile Action Change
 }
-if (!defined("IPS_SCRIPTMESSAGE")) {
+if (!defined('IPS_SCRIPTMESSAGE')) {
     // --- SCRIPT MANAGER
     define('IPS_SCRIPTMESSAGE', IPS_BASE + 700);           //Script Manager Message
     define('SM_CREATE', IPS_SCRIPTMESSAGE + 1);            //On Script Create
@@ -94,7 +94,7 @@ if (!defined("IPS_SCRIPTMESSAGE")) {
     define('SM_CHANGEFILE', IPS_SCRIPTMESSAGE + 3);        //On Script File changed
     define('SM_BROKEN', IPS_SCRIPTMESSAGE + 4);            //Script Broken Status changed
 }
-if (!defined("IPS_EVENTMESSAGE")) {
+if (!defined('IPS_EVENTMESSAGE')) {
     // --- EVENT MANAGER
     define('IPS_EVENTMESSAGE', IPS_BASE + 800);             //Event Scripter Message
     define('EM_CREATE', IPS_EVENTMESSAGE + 1);             //On Event Create
@@ -112,7 +112,7 @@ if (!defined("IPS_EVENTMESSAGE")) {
     define('EM_CHANGECYCLICTIMEFROM', IPS_EVENTMESSAGE + 13);
     define('EM_CHANGECYCLICTIMETO', IPS_EVENTMESSAGE + 14);
 }
-if (!defined("IPS_MEDIAMESSAGE")) {
+if (!defined('IPS_MEDIAMESSAGE')) {
     // --- MEDIA MANAGER
     define('IPS_MEDIAMESSAGE', IPS_BASE + 900);           //Media Manager Message
     define('MM_CREATE', IPS_MEDIAMESSAGE + 1);             //On Media Create
@@ -121,27 +121,27 @@ if (!defined("IPS_MEDIAMESSAGE")) {
     define('MM_AVAILABLE', IPS_MEDIAMESSAGE + 4);          //Media Available Status changed
     define('MM_UPDATE', IPS_MEDIAMESSAGE + 5);
 }
-if (!defined("IPS_LINKMESSAGE")) {
+if (!defined('IPS_LINKMESSAGE')) {
     // --- LINK MANAGER
     define('IPS_LINKMESSAGE', IPS_BASE + 1000);           //Link Manager Message
     define('LM_CREATE', IPS_LINKMESSAGE + 1);             //On Link Create
     define('LM_DELETE', IPS_LINKMESSAGE + 2);             //On Link Delete
     define('LM_CHANGETARGET', IPS_LINKMESSAGE + 3);       //On Link TargetID change
 }
-if (!defined("IPS_FLOWMESSAGE")) {
+if (!defined('IPS_FLOWMESSAGE')) {
     // --- DATA HANDLER
     define('IPS_FLOWMESSAGE', IPS_BASE + 1100);             //Data Handler Message
     define('FM_CONNECT', IPS_FLOWMESSAGE + 1);             //On Instance Connect
     define('FM_DISCONNECT', IPS_FLOWMESSAGE + 2);          //On Instance Disconnect
 }
-if (!defined("IPS_ENGINEMESSAGE")) {
+if (!defined('IPS_ENGINEMESSAGE')) {
     // --- SCRIPT ENGINE
     define('IPS_ENGINEMESSAGE', IPS_BASE + 1200);           //Script Engine Message
     define('SE_UPDATE', IPS_ENGINEMESSAGE + 1);             //On Library Refresh
     define('SE_EXECUTE', IPS_ENGINEMESSAGE + 2);            //On Script Finished execution
     define('SE_RUNNING', IPS_ENGINEMESSAGE + 3);            //On Script Started execution
 }
-if (!defined("IPS_PROFILEMESSAGE")) {
+if (!defined('IPS_PROFILEMESSAGE')) {
     // --- PROFILE POOL
     define('IPS_PROFILEMESSAGE', IPS_BASE + 1300);
     define('PM_CREATE', IPS_PROFILEMESSAGE + 1);
@@ -154,7 +154,7 @@ if (!defined("IPS_PROFILEMESSAGE")) {
     define('PM_ASSOCIATIONREMOVED', IPS_PROFILEMESSAGE + 8);
     define('PM_ASSOCIATIONCHANGED', IPS_PROFILEMESSAGE + 9);
 }
-if (!defined("IPS_TIMERMESSAGE")) {
+if (!defined('IPS_TIMERMESSAGE')) {
     // --- TIMER POOL
     define('IPS_TIMERMESSAGE', IPS_BASE + 1400);            //Timer Pool Message
     define('TM_REGISTER', IPS_TIMERMESSAGE + 1);
@@ -164,8 +164,8 @@ if (!defined("IPS_TIMERMESSAGE")) {
     define('TM_RUNNING', IPS_TIMERMESSAGE + 5);
 }
 
-if (!defined("IS_ACTIVE")) { //Nur wenn Konstanten noch nicht bekannt sind.
-// --- STATUS CODES
+if (!defined('IS_ACTIVE')) { //Nur wenn Konstanten noch nicht bekannt sind.
+    // --- STATUS CODES
     define('IS_SBASE', 100);
     define('IS_CREATING', IS_SBASE + 1); //module is being created
     define('IS_ACTIVE', IS_SBASE + 2); //module created and running
@@ -176,7 +176,7 @@ if (!defined("IS_ACTIVE")) { //Nur wenn Konstanten noch nicht bekannt sind.
     define('IS_NOTCREATED', IS_EBASE + 1); //instance could not be created
 }
 
-if (!defined("vtBoolean")) { //Nur wenn Konstanten noch nicht bekannt sind.
+if (!defined('vtBoolean')) { //Nur wenn Konstanten noch nicht bekannt sind.
     define('vtBoolean', 0);
     define('vtInteger', 1);
     define('vtFloat', 2);
@@ -185,8 +185,7 @@ if (!defined("vtBoolean")) { //Nur wenn Konstanten noch nicht bekannt sind.
 
 /**
  * ELROBase ist die Basis-Klasse für 433Mhz Funksteckdose, welche über den HE583 gesteuert wird.
- * Erweitert ipsmodule
- *
+ * Erweitert ipsmodule.
  */
 abstract class ELROBase extends IPSModule
 {
@@ -196,76 +195,70 @@ abstract class ELROBase extends IPSModule
 
     /**
      * Interne Funktion des SDK.
-     *
-     * @access public
      */
     public function Create()
     {
         parent::Create();
-        $this->RegisterVariableBoolean("STATE", "STATE", "~Switch");
-        $this->EnableAction("STATE");
-        $this->ConnectParent("{E6D7692A-7F4C-441D-827B-64062CFE1C02}");
+        $this->RegisterVariableBoolean('STATE', 'STATE', '~Switch');
+        $this->EnableAction('STATE');
+        $this->ConnectParent('{E6D7692A-7F4C-441D-827B-64062CFE1C02}');
     }
 
     /**
      * Interne Funktion des SDK.
-     *
-     * @access public
      */
     public function ApplyChanges()
     {
         parent::ApplyChanges();
-        $this->SetReceiveDataFilter(".9999999999.");
+        $this->SetReceiveDataFilter('.9999999999.');
 //        if (IPS_GetKernelRunlevel() == KR_READY)
 //        {
         $Address = $this->GetAdress();
-        $bin = "";
+        $bin = '';
         for ($index = 0; $index < strlen($Address); $index++) {
             switch ($Address[$index]) {
-                case "0":
-                    $bin .= "00";
+                case '0':
+                    $bin .= '00';
                     break;
-                case "1":
-                    $bin .= "0F";
+                case '1':
+                    $bin .= '0F';
                     break;
-                case "3":
-                    $bin .= "01";
+                case '3':
+                    $bin .= '01';
                     break;
-                case "4":
-                    $bin .= "F0";
+                case '4':
+                    $bin .= 'F0';
                     break;
-                case "C":
-                    $bin .= "10";
+                case 'C':
+                    $bin .= '10';
                     break;
-                case "5":
-                    $bin .= "FF";
+                case '5':
+                    $bin .= 'FF';
                     break;
-                case "7":
-                    $bin .= "F1";
+                case '7':
+                    $bin .= 'F1';
                     break;
-                case "D":
-                    $bin .= "1F";
+                case 'D':
+                    $bin .= '1F';
                     break;
-                case "F":
-                    $bin .= "11";
+                case 'F':
+                    $bin .= '11';
                     break;
             }
         }
-        $this->SetSummary("IT " . $bin);
+        $this->SetSummary('IT ' . $bin);
         //      }
     }
 
-    ################## PRIVATE
+    //################# PRIVATE
 
     /**
      * Sendet das Telegramm an den HE853.
-     *
-     * @access public
      */
     protected function DoSend($Value)
     {
         $i = 0;
-        $Repeat = $this->ReadPropertyInteger("Repeat");
+        $Repeat = $this->ReadPropertyInteger('Repeat');
         $SendData[] = hex2bin('01002003CA000000');
         $SendData[] = hex2bin('0200206060201812');
         $SendData[] = hex2bin('03' . $this->Address . $Value . '00000000');
@@ -275,10 +268,10 @@ abstract class ELROBase extends IPSModule
             foreach ($SendData as $Data) {
                 try {
                     $this->SendDebug('Send', $Data, 1);
-                    $this->SendDataToParent(json_encode(array(
-                        "DataID" => "{4A550680-80C5-4465-971E-BBF83205A02B}",
-                        "EventID" => 0,
-                        "Buffer" => utf8_encode($Data))));
+                    $this->SendDataToParent(json_encode([
+                        'DataID'  => '{4A550680-80C5-4465-971E-BBF83205A02B}',
+                        'EventID' => 0,
+                        'Buffer'  => utf8_encode($Data)]));
                 } catch (Exception $ex) {
                     return false;
                 }
@@ -288,12 +281,10 @@ abstract class ELROBase extends IPSModule
         return true;
     }
 
-    ################## ActionHandler
+    //################# ActionHandler
 
     /**
      * Interne Funktion des SDK.
-     *
-     * @access public
      */
     public function RequestAction($Ident, $Value)
     {
@@ -302,17 +293,15 @@ abstract class ELROBase extends IPSModule
         }
     }
 
-    ################## PUBLIC
+    //################# PUBLIC
 
     /**
      * Schaltet den Aktor ein oder aus und führt die Statusvariable nach.
-     *
-     * @access protected
      */
     protected function SendSwitch(bool $State)
     {
         if (!$this->HasActiveParent()) {
-            trigger_error($this->Translate("Instance has no active parent instance!"), E_USER_NOTICE);
+            trigger_error($this->Translate('Instance has no active parent instance!'), E_USER_NOTICE);
         } else {
             $this->Address = $this->GetAdress();
             if ((bool) $State) {
@@ -324,7 +313,7 @@ abstract class ELROBase extends IPSModule
                 SetValueBoolean($this->GetIDForIdent('STATE'), $State);
                 return true;
             } else {
-                trigger_error($this->Translate("Error on transmit!"), E_USER_NOTICE);
+                trigger_error($this->Translate('Error on transmit!'), E_USER_NOTICE);
             }
         }
         return false;
@@ -334,16 +323,16 @@ abstract class ELROBase extends IPSModule
      * Liefert die Adresse des Aktor im Hex-Format.
      *
      * @abstract
-     * @access protected
      */
-    abstract protected function GetAdress(); // must overwrite
-    ################## DUMMYS / WOARKAROUNDS - protected
+    abstract protected function GetAdress();
+
+    // must overwrite
+    //################# DUMMYS / WOARKAROUNDS - protected
 
     /**
      * Prüft ob ein aktiver Parent verbunden ist.
      *
      * @return bool True wenn Parent verbunden und aktiv, sonst false.
-     * @access protected
      */
     protected function HasActiveParent()
     {
@@ -358,4 +347,4 @@ abstract class ELROBase extends IPSModule
     }
 }
 
-/** @} */
+/* @} */
