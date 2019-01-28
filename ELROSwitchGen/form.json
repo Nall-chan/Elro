@@ -3,7 +3,7 @@
             [
                 {
                     "type": "Label",
-                    "label": "Config adresse here:"
+                    "caption": "Config adresse here:"
                 },
                 {
                     "name": "Code",
@@ -26,19 +26,19 @@
                     "caption": "Repeat code",
                     "options": [
                         {
-                            "label": "1",
+                            "caption": "1",
                             "value": 1
                         },
                         {
-                            "label": "2",
+                            "caption": "2",
                             "value": 2
                         },
                         {
-                            "label": "3",
+                            "caption": "3",
                             "value": 3
                         },
                         {
-                            "label": "4",
+                            "caption": "4",
                             "value": 4
                         }
                     ]
@@ -48,12 +48,12 @@
             [
                 {
                     "type": "Button",
-                    "label": "ON",
+                    "caption": "ON",
                     "onClick": "ELRO_SendSwitchGen($id, true);"
                 },
                 {
                     "type": "Button",
-                    "label": "OFF",
+                    "caption": "OFF",
                     "onClick": "ELRO_SendSwitchGen($id, false);"
                 }]
 }

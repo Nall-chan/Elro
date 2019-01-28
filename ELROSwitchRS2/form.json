@@ -3,7 +3,7 @@
             [
                 {
                     "type": "Label",
-                    "label": "Config adresse here:"
+                    "caption": "Config adresse here:"
                 },
                 {
                     "name": "CharAdr",
@@ -11,19 +11,19 @@
                     "caption": "Roman numeral",
                     "options": [
                         {
-                            "label": "I",
+                            "caption": "I",
                             "value": "15"
                         },
                         {
-                            "label": "II",
+                            "caption": "II",
                             "value": "45"
                         },
                         {
-                            "label": "III",
+                            "caption": "III",
                             "value": "51"
                         },
                         {
-                            "label": "IV",
+                            "caption": "IV",
                             "value": "54"
                         }
                     ]
@@ -34,19 +34,19 @@
                     "caption": "Number",
                     "options": [
                         {
-                            "label": "1",
+                            "caption": "1",
                             "value": "15"
                         },
                         {
-                            "label": "2",
+                            "caption": "2",
                             "value": "45"
                         },
                         {
-                            "label": "3",
+                            "caption": "3",
                             "value": "51"
                         },
                         {
-                            "label": "4",
+                            "caption": "4",
                             "value": "54"
                         }
                     ]
@@ -57,19 +57,19 @@
                     "caption": "Repeat code",
                     "options": [
                         {
-                            "label": "1",
+                            "caption": "1",
                             "value": 1
                         },
                         {
-                            "label": "2",
+                            "caption": "2",
                             "value": 2
                         },
                         {
-                            "label": "3",
+                            "caption": "3",
                             "value": 3
                         },
                         {
-                            "label": "4",
+                            "caption": "4",
                             "value": 4
                         }
                     ]
@@ -79,12 +79,12 @@
             [
                 {
                     "type": "Button",
-                    "label": "ON",
+                    "caption": "ON",
                     "onClick": "ELRO_SendSwitchRS2($id, true);"
                 },
                 {
                     "type": "Button",
-                    "label": "OFF",
+                    "caption": "OFF",
                     "onClick": "ELRO_SendSwitchRS2($id, false);"
                 }]
 }

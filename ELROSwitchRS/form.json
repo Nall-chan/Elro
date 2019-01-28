@@ -3,7 +3,7 @@
             [
                 {
                     "type": "Label",
-                    "label": "Config adresse here:"
+                    "caption": "Config adresse here:"
                 },
                 {
                     "name": "CharAdr",
@@ -11,67 +11,67 @@
                     "caption": "Letter",
                     "options": [
                         {
-                            "label": "A",
+                            "caption": "A",
                             "value": "00"
                         },
                         {
-                            "label": "B",
+                            "caption": "B",
                             "value": "40"
                         },
                         {
-                            "label": "C",
+                            "caption": "C",
                             "value": "10"
                         },
                         {
-                            "label": "D",
+                            "caption": "D",
                             "value": "50"
                         },
                         {
-                            "label": "E",
+                            "caption": "E",
                             "value": "04"
                         },
                         {
-                            "label": "F",
+                            "caption": "F",
                             "value": "44"
                         },
                         {
-                            "label": "G",
+                            "caption": "G",
                             "value": "14"
                         },
                         {
-                            "label": "H",
+                            "caption": "H",
                             "value": "54"
                         },
                         {
-                            "label": "I",
+                            "caption": "I",
                             "value": "01"
                         },
                         {
-                            "label": "J",
+                            "caption": "J",
                             "value": "41"
                         },
                         {
-                            "label": "K",
+                            "caption": "K",
                             "value": "11"
                         },
                         {
-                            "label": "L",
+                            "caption": "L",
                             "value": "51"
                         },
                         {
-                            "label": "M",
+                            "caption": "M",
                             "value": "05"
                         },
                         {
-                            "label": "N",
+                            "caption": "N",
                             "value": "45"
                         },
                         {
-                            "label": "O",
+                            "caption": "O",
                             "value": "15"
                         },
                         {
-                            "label": "P",
+                            "caption": "P",
                             "value": "55"
                         }
                     ]
@@ -82,67 +82,67 @@
                     "caption": "Number",
                     "options": [
                         {
-                            "label": "1",
+                            "caption": "1",
                             "value": "00"
                         },
                         {
-                            "label": "2",
+                            "caption": "2",
                             "value": "40"
                         },
                         {
-                            "label": "3",
+                            "caption": "3",
                             "value": "10"
                         },
                         {
-                            "label": "4",
+                            "caption": "4",
                             "value": "50"
                         },
                         {
-                            "label": "5",
+                            "caption": "5",
                             "value": "04"
                         },
                         {
-                            "label": "6",
+                            "caption": "6",
                             "value": "44"
                         },
                         {
-                            "label": "7",
+                            "caption": "7",
                             "value": "14"
                         },
                         {
-                            "label": "8",
+                            "caption": "8",
                             "value": "54"
                         },
                         {
-                            "label": "9",
+                            "caption": "9",
                             "value": "01"
                         },
                         {
-                            "label": "10",
+                            "caption": "10",
                             "value": "41"
                         },
                         {
-                            "label": "11",
+                            "caption": "11",
                             "value": "11"
                         },
                         {
-                            "label": "12",
+                            "caption": "12",
                             "value": "51"
                         },
                         {
-                            "label": "13",
+                            "caption": "13",
                             "value": "05"
                         },
                         {
-                            "label": "14",
+                            "caption": "14",
                             "value": "45"
                         },
                         {
-                            "label": "15",
+                            "caption": "15",
                             "value": "15"
                         },
                         {
-                            "label": "16",
+                            "caption": "16",
                             "value": "55"
                         }
                     ]
@@ -153,19 +153,19 @@
                     "caption": "Repeat code",
                     "options": [
                         {
-                            "label": "1",
+                            "caption": "1",
                             "value": 1
                         },
                         {
-                            "label": "2",
+                            "caption": "2",
                             "value": 2
                         },
                         {
-                            "label": "3",
+                            "caption": "3",
                             "value": 3
                         },
                         {
-                            "label": "4",
+                            "caption": "4",
                             "value": 4
                         }
                     ]
@@ -175,12 +175,12 @@
             [
                 {
                     "type": "Button",
-                    "label": "ON",
+                    "caption": "ON",
                     "onClick": "ELRO_SendSwitchRS($id, true);"
                 },
                 {
                     "type": "Button",
-                    "label": "OFF",
+                    "caption": "OFF",
                     "onClick": "ELRO_SendSwitchRS($id, false);"
                 }]
 }

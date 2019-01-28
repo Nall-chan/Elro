@@ -3,7 +3,7 @@
             [
                 {
                     "type": "Label",
-                    "label": "Mark all 'ON' DIP-Swtich:"
+                    "caption": "Mark all 'ON' DIP-Swtich:"
                 },
                 {
                     "name": "Bit9",
@@ -61,19 +61,19 @@
                     "caption": "Repeat code",
                     "options": [
                         {
-                            "label": "1",
+                            "caption": "1",
                             "value": 1
                         },
                         {
-                            "label": "2",
+                            "caption": "2",
                             "value": 2
                         },
                         {
-                            "label": "3",
+                            "caption": "3",
                             "value": 3
                         },
                         {
-                            "label": "4",
+                            "caption": "4",
                             "value": 4
                         }
                     ]
@@ -83,12 +83,12 @@
             [
                 {
                     "type": "Button",
-                    "label": "ON",
+                    "caption": "ON",
                     "onClick": "ELRO_SendSwitchDIP($id, true);"
                 },
                 {
                     "type": "Button",
-                    "label": "OFF",
+                    "caption": "OFF",
                     "onClick": "ELRO_SendSwitchDIP($id, false);"
                 }]
 }

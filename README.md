@@ -1,7 +1,7 @@
-[![Version](https://img.shields.io/badge/Symcon-PHPModul-red.svg)](https://www.symcon.de/service/dokumentation/entwicklerbereich/sdk-tools/sdk-php/)
-[![Version](https://img.shields.io/badge/Modul%20Version-2.04-blue.svg)]()
+[![SDK](https://img.shields.io/badge/Symcon-PHPModul-red.svg)](https://www.symcon.de/service/dokumentation/entwicklerbereich/sdk-tools/sdk-php/)
+[![Version](https://img.shields.io/badge/Modul%20Version-5.00-blue.svg)]()
 [![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-green.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)  
-[![Version](https://img.shields.io/badge/Symcon%20Version-4.3%20%3E-green.svg)](https://www.symcon.de/forum/threads/30857-IP-Symcon-4-3-%28Stable%29-Changelog)
+[![Version](https://img.shields.io/badge/Symcon%20Version-5.0%20%3E-green.svg)](https://www.symcon.de/forum/threads/30857-IP-Symcon-5-0-%28Stable%29-Changelog)
 [![StyleCI](https://styleci.io/repos/34275347/shield?style=flat)](https://styleci.io/repos/34275347)  
 
 # IPSELRO
@@ -174,6 +174,10 @@ GUIDs der Instanzen (z.B. wenn Instanz per PHP angelegt werden soll):
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=G2SLW2MEMQZH2" target="_blank"><img src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donate_LG.gif" border="0" /></a>
 
 ### Changlog:
+
+**5.00:**  
+Neu: Modul intern umgebaut  
+Fix: Konfigformulare nutzen durchgängig caption als Ersatz für label.  
 
 **2.04:**  
 Fixes für IPS 5.0  
