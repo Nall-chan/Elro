@@ -102,7 +102,6 @@ class ELROSwitchGen extends ELROBase
                 return 'F';
         }
     }
-
 }
 
 /* @} */

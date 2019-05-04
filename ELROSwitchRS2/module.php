@@ -43,7 +43,6 @@ class ELROSwitchRS2 extends ELROBase
         $Target = $this->ReadPropertyString('CharAdr') . $this->ReadPropertyString('ByteAdr') . '1';
         return $Target;
     }
-
 }
 
 /* @} */

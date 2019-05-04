@@ -90,7 +90,6 @@ class ELROSwitchDIP extends ELROBase
         $Target .= dechex($Adresse);
         return $Target;
     }
-
 }
 
 /* @} */
