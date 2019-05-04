@@ -163,8 +163,6 @@ abstract class ELROBase extends IPSModule
         }
         return false;
     }
-
 }
 
 /* @} */
-    
