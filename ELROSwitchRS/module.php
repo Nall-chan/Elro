@@ -8,10 +8,10 @@ declare(strict_types=1);
  * @file          module.php
  *
  * @author        Michael Tröger <micha@nall-chan.net>
- * @copyright     2018 Michael Tröger
+ * @copyright     2019 Michael Tröger
  * @license       https://creativecommons.org/licenses/by-nc-sa/4.0/ CC BY-NC-SA 4.0
  *
- * @version       5.00
+ * @version       5.1
  */
 require_once __DIR__ . '/../libs/ELROBase.php';  // ELROBase Klasse
 
@@ -44,23 +44,6 @@ class ELROSwitchRS extends ELROBase
         return $Target;
     }
 
-    /**
-     * IPS-Instanz-Funktion ELRO_SendSwitch.
-     * Schaltet den Aktor ein oder aus und führt die Statusvariable nach.
-     */
-    public function SendSwitch(bool $State)
-    {
-        parent::SendSwitch($State);
-    }
-
-    /**
-     * IPS-Instanz-Funktion ELRO_SendSwitchRS.
-     * Schaltet den Aktor ein oder aus und führt die Statusvariable nach.
-     */
-    public function SendSwitchRS(bool $State)
-    {
-        parent::SendSwitch($State);
-    }
 }
 
 /* @} */

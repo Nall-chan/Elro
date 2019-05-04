@@ -8,18 +8,11 @@ declare(strict_types=1);
  * @file          module.php
  *
  * @author        Michael Tröger <micha@nall-chan.net>
- * @copyright     2018 Michael Tröger
+ * @copyright     2019 Michael Tröger
  * @license       https://creativecommons.org/licenses/by-nc-sa/4.0/ CC BY-NC-SA 4.0
  *
- * @version       5.00
+ * @version       5.1
  */
-
-if (!defined('vtBoolean')) { //Nur wenn Konstanten noch nicht bekannt sind.
-    define('vtBoolean', 0);
-    define('vtInteger', 1);
-    define('vtFloat', 2);
-    define('vtString', 3);
-}
 
 /**
  * ELROBase ist die Basis-Klasse für 433Mhz Funksteckdose, welche über den HE583 gesteuert wird.
@@ -86,7 +79,6 @@ abstract class ELROBase extends IPSModule
     }
 
     //################# PRIVATE
-
     /**
      * Sendet das Telegramm an den HE853.
      */
@@ -117,7 +109,6 @@ abstract class ELROBase extends IPSModule
     }
 
     //################# ActionHandler
-
     /**
      * Interne Funktion des SDK.
      */
@@ -129,11 +120,10 @@ abstract class ELROBase extends IPSModule
     }
 
     //################# PUBLIC
-
     /**
      * Schaltet den Aktor ein oder aus und führt die Statusvariable nach.
      */
-    protected function SendSwitch(bool $State)
+    public function SendSwitch(bool $State)
     {
         if (!$this->HasActiveParent()) {
             trigger_error($this->Translate('Instance has no active parent instance!'), E_USER_NOTICE);
@@ -160,26 +150,21 @@ abstract class ELROBase extends IPSModule
      * @abstract
      */
     abstract protected function GetAdress();
-
-    // must overwrite
-    //################# DUMMYS / WOARKAROUNDS - protected
-
     /**
-     * Prüft ob ein aktiver Parent verbunden ist.
-     *
-     * @return bool True wenn Parent verbunden und aktiv, sonst false.
+     * Interne Funktion des SDK.
+     * Erweitert die SDK funktion um die Prüfung ob überhaupt ein Parent verbunden ist.
+     * @return bool True wenn Parent-Kette vorhanden und aktiv ist.
      */
     protected function HasActiveParent()
     {
         $instance = @IPS_GetInstance($this->InstanceID);
         if ($instance['ConnectionID'] > 0) {
-            $parent = IPS_GetInstance($instance['ConnectionID']);
-            if ($parent['InstanceStatus'] == IS_ACTIVE) {
-                return true;
-            }
+            return parent::HasActiveParent();
         }
         return false;
     }
+
 }
 
 /* @} */
+    

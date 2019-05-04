@@ -4,9 +4,9 @@
     "name": "ELRO Library",
     "url": "https://github.com/Nall-chan/IPSElro",
     "compatibility": {
-        "version": "5.0"
+        "version": "5.1"
     },
-    "version": "5.00",
-    "build": 100,
-    "date": 1541607648
+    "version": "5.1",
+    "build": 130,
+    "date": 1556897642 
 }

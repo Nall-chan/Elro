@@ -1,7 +1,7 @@
 [![SDK](https://img.shields.io/badge/Symcon-PHPModul-red.svg)](https://www.symcon.de/service/dokumentation/entwicklerbereich/sdk-tools/sdk-php/)
-[![Version](https://img.shields.io/badge/Modul%20Version-5.00-blue.svg)]()
+[![Version](https://img.shields.io/badge/Modul%20Version-5.1-blue.svg)]()
 [![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-green.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)  
-[![Version](https://img.shields.io/badge/Symcon%20Version-5.0%20%3E-green.svg)](https://www.symcon.de/forum/threads/30857-IP-Symcon-5-0-%28Stable%29-Changelog)
+[![Version](https://img.shields.io/badge/Symcon%20Version-5.1%20%3E-green.svg)](https://www.symcon.de/forum/threads/30857-IP-Symcon-5-1-%28Stable%29-Changelog)
 [![StyleCI](https://styleci.io/repos/34275347/shield?style=flat)](https://styleci.io/repos/34275347)  
 
 # IPSELRO
@@ -79,18 +79,8 @@ IPS-Modul für den ELRO HE853 / AB600 USB-Stick (433MHz-Geräte)
 
 ## 5. PHP-Befehlsreferenz
 
-   **Aktuell NICHT benutzen:**  
 ```php
     boolean ELRO_SendSwitch(integer $InstanceID, boolean $State);
-```
-   **Sondern folgende Befehle je nach Gerät:**  
-
-```php
-    boolean ELRO_SendSwitchDIP(integer $InstanceID, boolean $State);
-    boolean ELRO_SendSwitchRS1(integer $InstanceID, boolean $State);
-    boolean ELRO_SendSwitchRS2(integer $InstanceID, boolean $State);
-    boolean ELRO_SendSwitchRS3(integer $InstanceID, boolean $State);
-    boolean ELRO_SendSwitchGen(integer $InstanceID, boolean $State);
 ```
    **Beispiele:**  
 
@@ -174,6 +164,9 @@ GUIDs der Instanzen (z.B. wenn Instanz per PHP angelegt werden soll):
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=G2SLW2MEMQZH2" target="_blank"><img src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donate_LG.gif" border="0" /></a>
 
 ### Changlog:
+
+**5.1:**  
+Neu: Release für IPS 5.1 und den Module-Store  
 
 **5.00:**  
 Neu: Modul intern umgebaut  
