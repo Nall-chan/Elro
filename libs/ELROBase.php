@@ -79,6 +79,7 @@ abstract class ELROBase extends IPSModule
     }
 
     //################# PRIVATE
+
     /**
      * Sendet das Telegramm an den HE853.
      */
@@ -109,6 +110,7 @@ abstract class ELROBase extends IPSModule
     }
 
     //################# ActionHandler
+
     /**
      * Interne Funktion des SDK.
      */
@@ -120,6 +122,7 @@ abstract class ELROBase extends IPSModule
     }
 
     //################# PUBLIC
+
     /**
      * Schaltet den Aktor ein oder aus und führt die Statusvariable nach.
      */
@@ -150,9 +153,11 @@ abstract class ELROBase extends IPSModule
      * @abstract
      */
     abstract protected function GetAdress();
+
     /**
      * Interne Funktion des SDK.
      * Erweitert die SDK funktion um die Prüfung ob überhaupt ein Parent verbunden ist.
+     *
      * @return bool True wenn Parent-Kette vorhanden und aktiv ist.
      */
     protected function HasActiveParent()
