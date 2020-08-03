@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 /**
- * @addtogroup ipselro
+ * @addtogroup Elro
  * @{
  *
  * @file          module.php

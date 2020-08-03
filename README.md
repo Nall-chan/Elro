@@ -4,20 +4,21 @@
 [![Version](https://img.shields.io/badge/Symcon%20Version-5.1%20%3E-green.svg)](https://www.symcon.de/forum/threads/30857-IP-Symcon-5-1-%28Stable%29-Changelog)
 [![StyleCI](https://styleci.io/repos/34275347/shield?style=flat)](https://styleci.io/repos/34275347)  
 
-# IPSELRO
+# Elro
 IPS-Modul für den ELRO HE853 / AB600 USB-Stick (433MHz-Geräte)  
 
-## Inhaltsverzeichnis
+## Inhaltsverzeichnis <!-- omit in toc -->   
 
-1. [Funktionsumfang](#1-funktionsumfang)
-2. [Voraussetzungen](#2-voraussetzungen)
-3. [Software-Installation](#3-software-installation)
-4. [Einrichten der Instanzen in IPS](#4-einrichten-der-instanzen-in-ips)
-5. [PHP-Befehlsreferenz](#5-php-befehlsreferenz)
-6. [Parameter / Modul-Infos](#6-parameter--modul-infos)
-7. [Tips & Tricks](#7-tips--tricks)
-8. [Anhang](#8-anhang) 
-9. [Lizenz](#9-lizenz)
+- [1. Funktionsumfang](#1-funktionsumfang)
+- [2. Voraussetzungen](#2-voraussetzungen)
+- [3. Software-Installation](#3-software-installation)
+- [4. Einrichten der Instanzen in IPS](#4-einrichten-der-instanzen-in-ips)
+- [5. PHP-Befehlsreferenz](#5-php-befehlsreferenz)
+- [6. Parameter / Modul-Infos](#6-parameter--modul-infos)
+- [8. Anhang](#8-anhang)
+  - [Spenden:](#spenden)
+  - [Changelog:](#changelog)
+- [9. Lizenz](#9-lizenz)
 
 ## 1. Funktionsumfang
 
@@ -36,13 +37,13 @@ IPS-Modul für den ELRO HE853 / AB600 USB-Stick (433MHz-Geräte)
 
    - IPS 4.3 oder höher  
    - Der USB-Stick HE853 bzw. AB600 von Elro.  
-   - Ein freie USB-Anschluß an dem Syste, wo IPS betrieben wird.  
+   - Ein freie USB-Anschluss an dem System, wo IPS betrieben wird.  
 
 ## 3. Software-Installation
 
 **IPS 4.3:**  
    Bei privater Nutzung: Über das 'Module-Control' in IPS folgende URL hinzufügen.  
-   `git://github.com/Nall-chan/IPSElro.git`  
+   `git://github.com/Nall-chan/Elro.git`  
 
    **Bei kommerzieller Nutzung (z.B. als Errichter oder Integrator) wenden Sie sich bitte an den Autor.**  
 
@@ -66,7 +67,7 @@ IPS-Modul für den ELRO HE853 / AB600 USB-Stick (433MHz-Geräte)
    Die StatusVariable 'STATE' ist dem Standardprofil ~Switch zugeteilt, und über die eingebaute Standardaktion auch sofort vom WebFront aus schaltbar.
 
    **'Self-Learning'-Geräte:**  
-    - Erst in IPS die Inztanz anlegen und mit eine ausgedachten DIP/RS Adresse einrichten.  
+    - Erst in IPS die Instanz anlegen und mit eine ausgedachten DIP/RS Adresse einrichten.  
     - Anschließend Gerät in den Anlernmodus versetzen.  
     - Jetzt z.B. im WebFront das entsprechende Gerät einmal EIN- und AUS-Schalten.  
     - Das Gerät sollte den Anlernmodus automatisch verlassen haben, und sich jetzt steuern lassen.  
@@ -159,18 +160,18 @@ GUIDs der Instanzen (z.B. wenn Instanz per PHP angelegt werden soll):
 
 ### Spenden:  
   
-  Die Library ist für die nicht kommzerielle Nutzung kostenlos, Schenkungen als Unterstützung für den Autor werden hier akzeptiert:  
+  Die Library ist für die nicht kommerzielle Nutzung kostenlos, Schenkungen als Unterstützung für den Autor werden hier akzeptiert:  
 
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=G2SLW2MEMQZH2" target="_blank"><img src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donate_LG.gif" border="0" /></a>
 
-### Changlog:
+### Changelog:
 
 **5.1:**  
 Neu: Release für IPS 5.1 und den Module-Store  
 
 **5.00:**  
 Neu: Modul intern umgebaut  
-Fix: Konfigformulare nutzen durchgängig caption als Ersatz für label.  
+Fix: Konfigurationsformulare nutzen durchgängig caption als Ersatz für label.  
 
 **2.04:**  
 Fixes für IPS 5.0  
