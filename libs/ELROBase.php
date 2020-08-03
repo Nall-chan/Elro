@@ -8,10 +8,10 @@ declare(strict_types=1);
  * @file          module.php
  *
  * @author        Michael Tröger <micha@nall-chan.net>
- * @copyright     2019 Michael Tröger
+ * @copyright     2020 Michael Tröger
  * @license       https://creativecommons.org/licenses/by-nc-sa/4.0/ CC BY-NC-SA 4.0
  *
- * @version       5.1
+ * @version       5.2
  */
 
 /**
@@ -78,6 +78,46 @@ abstract class ELROBase extends IPSModule
         $this->SetSummary('IT ' . $bin);
     }
 
+    //################# ActionHandler
+
+    /**
+     * Interne Funktion des SDK.
+     */
+    public function RequestAction($Ident, $Value)
+    {
+        if ($Ident == 'STATE') {
+            return $this->SendSwitch($Value);
+        }
+        trigger_error($this->Translate('Invalid Ident.'), E_USER_NOTICE);
+        return false;
+    }
+
+    //################# PUBLIC
+
+    /**
+     * Schaltet den Aktor ein oder aus und führt die Statusvariable nach.
+     */
+    public function SendSwitch(bool $State)
+    {
+        if (!$this->HasActiveParent()) {
+            trigger_error($this->Translate('Instance has no active parent instance!'), E_USER_NOTICE);
+        } else {
+            $this->Address = $this->GetAdress();
+            if ((bool) $State) {
+                $SendState = $this->on;
+            } else {
+                $SendState = $this->off;
+            }
+            if ($this->DoSend($SendState)) {
+                $this->SetValue('STATE', (bool) $State);
+                return true;
+            } else {
+                trigger_error($this->Translate('Error on transmit!'), E_USER_NOTICE);
+            }
+        }
+        return false;
+    }
+
     //################# PRIVATE
 
     /**
@@ -109,65 +149,12 @@ abstract class ELROBase extends IPSModule
         return true;
     }
 
-    //################# ActionHandler
-
-    /**
-     * Interne Funktion des SDK.
-     */
-    public function RequestAction($Ident, $Value)
-    {
-        if ($Ident == 'STATE') {
-            $this->SendSwitch($Value);
-        }
-    }
-
-    //################# PUBLIC
-
-    /**
-     * Schaltet den Aktor ein oder aus und führt die Statusvariable nach.
-     */
-    public function SendSwitch(bool $State)
-    {
-        if (!$this->HasActiveParent()) {
-            trigger_error($this->Translate('Instance has no active parent instance!'), E_USER_NOTICE);
-        } else {
-            $this->Address = $this->GetAdress();
-            if ((bool) $State) {
-                $SendState = $this->on;
-            } else {
-                $SendState = $this->off;
-            }
-            if ($this->DoSend($SendState)) {
-                SetValueBoolean($this->GetIDForIdent('STATE'), $State);
-                return true;
-            } else {
-                trigger_error($this->Translate('Error on transmit!'), E_USER_NOTICE);
-            }
-        }
-        return false;
-    }
-
     /**
      * Liefert die Adresse des Aktor im Hex-Format.
      *
      * @abstract
      */
     abstract protected function GetAdress();
-
-    /**
-     * Interne Funktion des SDK.
-     * Erweitert die SDK funktion um die Prüfung ob überhaupt ein Parent verbunden ist.
-     *
-     * @return bool True wenn Parent-Kette vorhanden und aktiv ist.
-     */
-    protected function HasActiveParent()
-    {
-        $instance = @IPS_GetInstance($this->InstanceID);
-        if ($instance['ConnectionID'] > 0) {
-            return parent::HasActiveParent();
-        }
-        return false;
-    }
 }
 
 /* @} */
