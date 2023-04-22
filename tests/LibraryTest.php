@@ -31,5 +31,4 @@ class LibraryValidationTest extends TestCaseSymconValidation
     {
         $this->validateModule(__DIR__ . '/../ELROSwitchRS3');
     }
-
 }
