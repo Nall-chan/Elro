@@ -1,23 +1,25 @@
 [![SDK](https://img.shields.io/badge/Symcon-PHPModul-red.svg)](https://www.symcon.de/service/dokumentation/entwicklerbereich/sdk-tools/sdk-php/)
-[![Version](https://img.shields.io/badge/Modul%20Version-2.04-blue.svg)]()
-[![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-green.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)  
-[![Version](https://img.shields.io/badge/Symcon%20Version-4.3%20%3E-green.svg)](https://www.symcon.de/forum/threads/30857-IP-Symcon-4-3-%28Stable%29-Changelog)
-[![StyleCI](https://styleci.io/repos/34275347/shield?style=flat)](https://styleci.io/repos/34275347)  
+[![Version](https://img.shields.io/badge/Modul%20Version-5.1-blue.svg)]()
+[![Version](https://img.shields.io/badge/Symcon%20Version-5.1%20%3E-green.svg)](https://www.symcon.de/forum/threads/30857-IP-Symcon-5-1-%28Stable%29-Changelog)  
+[![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-green.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![Check Style](https://github.com/Nall-chan/Elro/workflows/Check%20Style/badge.svg)](https://github.com/Nall-chan/Elro/actions) [![Run Tests](https://github.com/Nall-chan/Elro/workflows/Run%20Tests/badge.svg)](https://github.com/Nall-chan/Elro/actions)  
 
-# IPSELRO
+# Elro
 IPS-Modul für den ELRO HE853 / AB600 USB-Stick (433MHz-Geräte)  
 
-## Inhaltsverzeichnis
+## Inhaltsverzeichnis <!-- omit in toc -->   
 
-1. [Funktionsumfang](#1-funktionsumfang)
-2. [Voraussetzungen](#2-voraussetzungen)
-3. [Software-Installation](#3-software-installation)
-4. [Einrichten der Instanzen in IPS](#4-einrichten-der-instanzen-in-ips)
-5. [PHP-Befehlsreferenz](#5-php-befehlsreferenz)
-6. [Parameter / Modul-Infos](#6-parameter--modul-infos)
-7. [Tips & Tricks](#7-tips--tricks)
-8. [Anhang](#8-anhang) 
-9. [Lizenz](#9-lizenz)
+- [Elro](#elro)
+  - [1. Funktionsumfang](#1-funktionsumfang)
+  - [2. Voraussetzungen](#2-voraussetzungen)
+  - [3. Software-Installation](#3-software-installation)
+  - [4. Einrichten der Instanzen in IPS](#4-einrichten-der-instanzen-in-ips)
+  - [5. PHP-Befehlsreferenz](#5-php-befehlsreferenz)
+  - [6. Parameter / Modul-Infos](#6-parameter--modul-infos)
+  - [8. Anhang](#8-anhang)
+    - [Spenden:](#spenden)
+    - [Changelog:](#changelog)
+  - [9. Lizenz](#9-lizenz)
 
 ## 1. Funktionsumfang
 
@@ -36,13 +38,13 @@ IPS-Modul für den ELRO HE853 / AB600 USB-Stick (433MHz-Geräte)
 
    - IPS 4.3 oder höher  
    - Der USB-Stick HE853 bzw. AB600 von Elro.  
-   - Ein freie USB-Anschluß an dem Syste, wo IPS betrieben wird.  
+   - Ein freie USB-Anschluss an dem System, wo IPS betrieben wird.  
 
 ## 3. Software-Installation
 
 **IPS 4.3:**  
    Bei privater Nutzung: Über das 'Module-Control' in IPS folgende URL hinzufügen.  
-   `git://github.com/Nall-chan/IPSElro.git`  
+   `git://github.com/Nall-chan/Elro.git`  
 
    **Bei kommerzieller Nutzung (z.B. als Errichter oder Integrator) wenden Sie sich bitte an den Autor.**  
 
@@ -66,7 +68,7 @@ IPS-Modul für den ELRO HE853 / AB600 USB-Stick (433MHz-Geräte)
    Die StatusVariable 'STATE' ist dem Standardprofil ~Switch zugeteilt, und über die eingebaute Standardaktion auch sofort vom WebFront aus schaltbar.
 
    **'Self-Learning'-Geräte:**  
-    - Erst in IPS die Inztanz anlegen und mit eine ausgedachten DIP/RS Adresse einrichten.  
+    - Erst in IPS die Instanz anlegen und mit eine ausgedachten DIP/RS Adresse einrichten.  
     - Anschließend Gerät in den Anlernmodus versetzen.  
     - Jetzt z.B. im WebFront das entsprechende Gerät einmal EIN- und AUS-Schalten.  
     - Das Gerät sollte den Anlernmodus automatisch verlassen haben, und sich jetzt steuern lassen.  
@@ -79,18 +81,8 @@ IPS-Modul für den ELRO HE853 / AB600 USB-Stick (433MHz-Geräte)
 
 ## 5. PHP-Befehlsreferenz
 
-   **Aktuell NICHT benutzen:**  
 ```php
     boolean ELRO_SendSwitch(integer $InstanceID, boolean $State);
-```
-   **Sondern folgende Befehle je nach Gerät:**  
-
-```php
-    boolean ELRO_SendSwitchDIP(integer $InstanceID, boolean $State);
-    boolean ELRO_SendSwitchRS1(integer $InstanceID, boolean $State);
-    boolean ELRO_SendSwitchRS2(integer $InstanceID, boolean $State);
-    boolean ELRO_SendSwitchRS3(integer $InstanceID, boolean $State);
-    boolean ELRO_SendSwitchGen(integer $InstanceID, boolean $State);
 ```
    **Beispiele:**  
 
@@ -105,75 +97,82 @@ IPS-Modul für den ELRO HE853 / AB600 USB-Stick (433MHz-Geräte)
 
 ## 6. Parameter / Modul-Infos
 
-**GUID's:**  
-GUIDs der Instanzen (z.B. wenn Instanz per PHP angelegt werden soll):  
+**GUID:**  
+GUID der Instanzen (z.B. wenn Instanz per PHP angelegt werden soll):  
 
-| Device                             | GUID                                   |
+|               Device               |                  GUID                  |
 | :--------------------------------: | :------------------------------------: |
-| ELRO  Schalter (DIP)               | {49575274-BD5B-4FE1-AF7B-D98F2566BFE0} |
+|        ELRO  Schalter (DIP)        | {49575274-BD5B-4FE1-AF7B-D98F2566BFE0} |
 | AB600 / Intertechno  Schalter (RS) | {4334935A-A711-45F8-AE9D-FED61A118ABF} |
-| FLS 100 Schalter (RS)              | {006FF555-940D-40DE-B9B5-CDBE22C0828D} |
-| REV Schalter (RS)                  | {7AC6EBE8-8AC9-43F8-930F-0813D10F52C2} |
-| Intertechno Generic                | {C336B7C1-0F32-4601-B5ED-376546FC1779} |
+|       FLS 100 Schalter (RS)        | {006FF555-940D-40DE-B9B5-CDBE22C0828D} |
+|         REV Schalter (RS)          | {7AC6EBE8-8AC9-43F8-930F-0813D10F52C2} |
+|        Intertechno Generic         | {C336B7C1-0F32-4601-B5ED-376546FC1779} |
 
 **Eigenschaften von ELRO  Schalter (DIP) :**  
 
-| Eigenschaft     | Typ     | Standardwert | Funktion                                 |
-| :-------------: | :-----: | :----------: | :--------------------------------------: |
-| Bit9            | boolean | false        | Dip-Schalter 1                           |
-| Bit8            | boolean | false        | Dip-Schalter 2                           |
-| Bit7            | boolean | false        | Dip-Schalter 3                           |
-| Bit6            | boolean | false        | Dip-Schalter 4                           |
-| Bit5            | boolean | false        | Dip-Schalter 5                           |
-| Bit4            | boolean | false        | Dip-Schalter A                           |
-| Bit3            | boolean | false        | Dip-Schalter B                           |
-| Bit2            | boolean | false        | Dip-Schalter C                           |
-| Bit1            | boolean | false        | Dip-Schalter D                           |
-| Bit0            | boolean | false        | Dip-Schalter E                           |
-| Repeat          | integer | 2            | Anzahl wie häufig der Code gesendet wird |
+| Eigenschaft |   Typ   | Standardwert |                 Funktion                 |
+| :---------: | :-----: | :----------: | :--------------------------------------: |
+|    Bit9     | boolean |    false     |              Dip-Schalter 1              |
+|    Bit8     | boolean |    false     |              Dip-Schalter 2              |
+|    Bit7     | boolean |    false     |              Dip-Schalter 3              |
+|    Bit6     | boolean |    false     |              Dip-Schalter 4              |
+|    Bit5     | boolean |    false     |              Dip-Schalter 5              |
+|    Bit4     | boolean |    false     |              Dip-Schalter A              |
+|    Bit3     | boolean |    false     |              Dip-Schalter B              |
+|    Bit2     | boolean |    false     |              Dip-Schalter C              |
+|    Bit1     | boolean |    false     |              Dip-Schalter D              |
+|    Bit0     | boolean |    false     |              Dip-Schalter E              |
+|   Repeat    | integer |      2       | Anzahl wie häufig der Code gesendet wird |
 
 **Eigenschaften von AB600 / Intertechno  Schalter (RS) :**  
 
-| Eigenschaft     | Typ     | Standardwert | Funktion                                 |
-| :-------------: | :-----: | :----------: | :--------------------------------------: |
-| CharAdr         | string  | 00           | Rotary-Switch Buchstabe                  |
-| ByteAdr         | string  | 00           | Rotary-Switch Zahl                       |
-| Repeat          | integer | 2            | Anzahl wie häufig der Code gesendet wird |
+| Eigenschaft |   Typ   | Standardwert |                 Funktion                 |
+| :---------: | :-----: | :----------: | :--------------------------------------: |
+|   CharAdr   | string  |      00      |         Rotary-Switch Buchstabe          |
+|   ByteAdr   | string  |      00      |            Rotary-Switch Zahl            |
+|   Repeat    | integer |      2       | Anzahl wie häufig der Code gesendet wird |
 
 **Eigenschaften von FLS 100 Schalter (RS) :**  
 
-| Eigenschaft     | Typ     | Standardwert | Funktion                                 |
-| :-------------: | :-----: | :----------: | :--------------------------------------: |
-| CharAdr         | string  | 15           | Rotary-Switch Römische Ziffer            |
-| ByteAdr         | string  | 15           | Rotary-Switch Zahl                       |
-| Repeat          | integer | 2            | Anzahl wie häufig der Code gesendet wird |
+| Eigenschaft |   Typ   | Standardwert |                 Funktion                 |
+| :---------: | :-----: | :----------: | :--------------------------------------: |
+|   CharAdr   | string  |      15      |      Rotary-Switch Römische Ziffer       |
+|   ByteAdr   | string  |      15      |            Rotary-Switch Zahl            |
+|   Repeat    | integer |      2       | Anzahl wie häufig der Code gesendet wird |
 
 **Eigenschaften von REV Schalter (RS) :**  
 
-| Eigenschaft     | Typ     | Standardwert | Funktion                                 |
-| :-------------: | :-----: | :----------: | :--------------------------------------: |
-| CharAdr         | string  | D5           | Rotary-Switch Buchstabe                  |
-| ByteAdr         | string  | D4           | Rotary-Switch Zahl                       |
-| Repeat          | integer | 2            | Anzahl wie häufig der Code gesendet wird |
+| Eigenschaft |   Typ   | Standardwert |                 Funktion                 |
+| :---------: | :-----: | :----------: | :--------------------------------------: |
+|   CharAdr   | string  |      D5      |         Rotary-Switch Buchstabe          |
+|   ByteAdr   | string  |      D4      |            Rotary-Switch Zahl            |
+|   Repeat    | integer |      2       | Anzahl wie häufig der Code gesendet wird |
 
 **Eigenschaften von Intertechno Generic :**  
 
-| Eigenschaft     | Typ     | Standardwert | Funktion                                 |
-| :-------------: | :-----: | :----------: | :--------------------------------------: |
-| Code            | string  |              | Adresse bestehend aus 0, 1 und F         |
-| CodeOn          | string  |              | An-Befehl bestehend aus 0, 1 und F       |
-| CodeOff         | string  |              | Aus-Befehl bestehend aus 0, 1 und F      |
-| Repeat          | integer | 2            | Anzahl wie häufig der Code gesendet wird |
+| Eigenschaft |   Typ   | Standardwert |                 Funktion                 |
+| :---------: | :-----: | :----------: | :--------------------------------------: |
+|    Code     | string  |              |     Adresse bestehend aus 0, 1 und F     |
+|   CodeOn    | string  |              |    An-Befehl bestehend aus 0, 1 und F    |
+|   CodeOff   | string  |              |   Aus-Befehl bestehend aus 0, 1 und F    |
+|   Repeat    | integer |      2       | Anzahl wie häufig der Code gesendet wird |
 
 ## 8. Anhang
 
 ### Spenden:  
   
-  Die Library ist für die nicht kommzerielle Nutzung kostenlos, Schenkungen als Unterstützung für den Autor werden hier akzeptiert:  
+  Die Library ist für die nicht kommerzielle Nutzung kostenlos, Schenkungen als Unterstützung für den Autor werden hier akzeptiert:  
 
 <a href="https://www.paypal.com/donate?hosted_button_id=G2SLW2MEMQZH2" target="_blank"><img src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donate_LG.gif" border="0" /></a>
 
-### Changlog:
+### Changelog:
+
+**5.1:**  
+Neu: Release für IPS 5.1 und den Module-Store  
+
+**5.00:**  
+Neu: Modul intern umgebaut  
+Fix: Konfigurationsformulare nutzen durchgängig caption als Ersatz für label.  
 
 **2.04:**  
 Fixes für IPS 5.0  

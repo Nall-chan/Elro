@@ -1,90 +1,82 @@
 {
-    "elements":
-            [
+    "elements": [
+        {
+            "type": "Label",
+            "caption": "Config adresse here:"
+        },
+        {
+            "name": "CharAdr",
+            "type": "Select",
+            "caption": "Roman numeral",
+            "options": [
                 {
-                    "type": "Label",
-                    "label": "Config adresse here:"
+                    "caption": "I",
+                    "value": "15"
                 },
                 {
-                    "name": "CharAdr",
-                    "type": "Select",
-                    "caption": "Roman numeral",
-                    "options": [
-                        {
-                            "label": "I",
-                            "value": "15"
-                        },
-                        {
-                            "label": "II",
-                            "value": "45"
-                        },
-                        {
-                            "label": "III",
-                            "value": "51"
-                        },
-                        {
-                            "label": "IV",
-                            "value": "54"
-                        }
-                    ]
+                    "caption": "II",
+                    "value": "45"
                 },
                 {
-                    "name": "ByteAdr",
-                    "type": "Select",
-                    "caption": "Number",
-                    "options": [
-                        {
-                            "label": "1",
-                            "value": "15"
-                        },
-                        {
-                            "label": "2",
-                            "value": "45"
-                        },
-                        {
-                            "label": "3",
-                            "value": "51"
-                        },
-                        {
-                            "label": "4",
-                            "value": "54"
-                        }
-                    ]
+                    "caption": "III",
+                    "value": "51"
                 },
                 {
-                    "name": "Repeat",
-                    "type": "Select",
-                    "caption": "Repeat code",
-                    "options": [
-                        {
-                            "label": "1",
-                            "value": 1
-                        },
-                        {
-                            "label": "2",
-                            "value": 2
-                        },
-                        {
-                            "label": "3",
-                            "value": 3
-                        },
-                        {
-                            "label": "4",
-                            "value": 4
-                        }
-                    ]
+                    "caption": "IV",
+                    "value": "54"
                 }
-            ],
-    "actions":
-            [
+            ]
+        },
+        {
+            "name": "ByteAdr",
+            "type": "Select",
+            "caption": "Number",
+            "options": [
                 {
-                    "type": "Button",
-                    "label": "ON",
-                    "onClick": "ELRO_SendSwitchRS2($id, true);"
+                    "caption": "1",
+                    "value": "15"
                 },
                 {
-                    "type": "Button",
-                    "label": "OFF",
-                    "onClick": "ELRO_SendSwitchRS2($id, false);"
-                }]
+                    "caption": "2",
+                    "value": "45"
+                },
+                {
+                    "caption": "3",
+                    "value": "51"
+                },
+                {
+                    "caption": "4",
+                    "value": "54"
+                }
+            ]
+        },
+        {
+            "name": "Repeat",
+            "type": "Select",
+            "caption": "Repeat code",
+            "options": [
+                {
+                    "caption": "1",
+                    "value": 1
+                },
+                {
+                    "caption": "2",
+                    "value": 2
+                },
+                {
+                    "caption": "3",
+                    "value": 3
+                },
+                {
+                    "caption": "4",
+                    "value": 4
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "type": "TestCenter"
+        }
+    ]
 }

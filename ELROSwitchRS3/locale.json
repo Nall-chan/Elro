@@ -6,7 +6,8 @@
             "Number": "Ziffer",
             "Repeat code": "Sende-Zyklen",
             "Instance has no active parent instance!": "Keine aktive Parent Instanz!",
-            "Error on transmit!": "Fehler beim Senden!"
+            "Error on transmit!": "Fehler beim Senden!",
+            "Invalid Ident.": "Ungültiger Ident."
         }
     }
 }

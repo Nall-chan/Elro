@@ -2,12 +2,11 @@
     "id": "{D2A49F50-6281-4B26-BA75-2197CFA38AF0}",
     "author": "Michael Tr\u00f6ger",
     "name": "ELRO Library",
-    "url": "https://github.com/Nall-chan/IPSElro",
+    "url": "https://github.com/Nall-chan/Elro",
     "compatibility": {
-        "version": "4.3",
-        "date": 1498241677
+        "version": "5.1"
     },
-    "version": "2.03",
-    "build": 122,
-    "date": 1498241677
+    "version": "5.2",
+    "build": 152,
+    "date": 1596445683
 }

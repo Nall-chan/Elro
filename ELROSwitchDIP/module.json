@@ -3,9 +3,16 @@
     "name": "ELROSwitchDIP",
     "type": 3,
     "vendor": "ELRO",
-    "aliases": ["ELRO Schalter (DIP)"],
-    "parentRequirements": ["{4A550680-80C5-4465-971E-BBF83205A02B}"],
+    "aliases": [
+        "ELRO Schalter (DIP)"
+    ],
+    "parentRequirements": [
+        "{4A550680-80C5-4465-971E-BBF83205A02B}"
+    ],
     "childRequirements": [],
-    "implemented": ["{FD7FF32C-331E-4F6B-8BA8-F73982EF5AA7}"],
-    "prefix": "ELRO"
+    "implemented": [
+        "{FD7FF32C-331E-4F6B-8BA8-F73982EF5AA7}"
+    ],
+    "prefix": "ELRO",
+    "url": "https://github.com/Nall-chan/Elro"
 }
