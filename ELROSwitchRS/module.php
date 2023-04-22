@@ -38,7 +38,7 @@ class ELROSwitchRS extends ELROBase
     /**
      * Liefert die Adresse des Aktor im Hex-Format.
      */
-    protected function GetAdress()
+    protected function GetAddress()
     {
         $Target = $this->ReadPropertyString('CharAdr') . $this->ReadPropertyString('ByteAdr') . '1';
         return $Target;

@@ -46,7 +46,7 @@ class ELROSwitchDIP extends ELROBase
     /**
      * Liefert die Adresse des Aktor im Hex-Format.
      */
-    protected function GetAdress()
+    protected function GetAddress()
     {
         $Adresse = 0;
         if (!$this->ReadPropertyBoolean('Bit8')) {

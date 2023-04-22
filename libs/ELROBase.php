@@ -42,7 +42,7 @@ abstract class ELROBase extends IPSModule
     {
         parent::ApplyChanges();
         $this->SetReceiveDataFilter('.9999999999.');
-        $Address = $this->GetAdress();
+        $Address = $this->GetAddress();
         $bin = '';
         for ($index = 0; $index < strlen($Address); $index++) {
             switch ($Address[$index]) {
@@ -102,7 +102,7 @@ abstract class ELROBase extends IPSModule
         if (!$this->HasActiveParent()) {
             trigger_error($this->Translate('Instance has no active parent instance!'), E_USER_NOTICE);
         } else {
-            $this->Address = $this->GetAdress();
+            $this->Address = $this->GetAddress();
             if ((bool) $State) {
                 $SendState = $this->on;
             } else {
@@ -154,7 +154,7 @@ abstract class ELROBase extends IPSModule
      *
      * @abstract
      */
-    abstract protected function GetAdress();
+    abstract protected function GetAddress();
 }
 
 /* @} */

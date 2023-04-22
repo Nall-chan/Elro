@@ -62,7 +62,7 @@ class ELROSwitchGen extends ELROBase
     /**
      * Liefert die Adresse des Aktor im Hex-Format.
      */
-    protected function GetAdress()
+    protected function GetAddress()
     {
         $on = trim($this->ReadPropertyString('CodeOn'));
         $this->on = $this->ToHex($on);
