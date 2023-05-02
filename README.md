@@ -1,30 +1,30 @@
 [![SDK](https://img.shields.io/badge/Symcon-PHPModul-red.svg)](https://www.symcon.de/service/dokumentation/entwicklerbereich/sdk-tools/sdk-php/)
-[![Version](https://img.shields.io/badge/Modul%20Version-5.1-blue.svg)]()
+[![Version](https://img.shields.io/badge/Modul%20Version-5.2-blue.svg)]()
 [![Version](https://img.shields.io/badge/Symcon%20Version-5.1%20%3E-green.svg)](https://www.symcon.de/forum/threads/30857-IP-Symcon-5-1-%28Stable%29-Changelog)  
 [![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-green.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-[![Check Style](https://github.com/Nall-chan/Elro/workflows/Check%20Style/badge.svg)](https://github.com/Nall-chan/Elro/actions) [![Run Tests](https://github.com/Nall-chan/Elro/workflows/Run%20Tests/badge.svg)](https://github.com/Nall-chan/Elro/actions)  
+[![Check Style](https://github.com/Nall-chan/Elro/workflows/Check%20Style/badge.svg)](https://github.com/Nall-chan/Elro/actions)
+[![Run Tests](https://github.com/Nall-chan/Elro/workflows/Run%20Tests/badge.svg)](https://github.com/Nall-chan/Elro/actions)  
+[![Spenden](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donate_SM.gif)](#7-spenden)  
 
-# Elro
+# Elro <!-- omit in toc -->  
 IPS-Modul für den ELRO HE853 / AB600 USB-Stick (433MHz-Geräte)  
 
 ## Inhaltsverzeichnis <!-- omit in toc -->   
 
-- [Elro](#elro)
-  - [1. Funktionsumfang](#1-funktionsumfang)
-  - [2. Voraussetzungen](#2-voraussetzungen)
-  - [3. Software-Installation](#3-software-installation)
-  - [4. Einrichten der Instanzen in IPS](#4-einrichten-der-instanzen-in-ips)
-  - [5. PHP-Befehlsreferenz](#5-php-befehlsreferenz)
-  - [6. Parameter / Modul-Infos](#6-parameter--modul-infos)
-  - [8. Anhang](#8-anhang)
-    - [Spenden:](#spenden)
-    - [Changelog:](#changelog)
-  - [9. Lizenz](#9-lizenz)
+- [1. Funktionsumfang](#1-funktionsumfang)
+- [2. Voraussetzungen](#2-voraussetzungen)
+- [3. Software-Installation](#3-software-installation)
+- [4. Einrichten der Instanzen in IPS](#4-einrichten-der-instanzen-in-ips)
+- [5. PHP-Befehlsreferenz](#5-php-befehlsreferenz)
+- [6. Parameter / Modul-Infos](#6-parameter--modul-infos)
+- [7. Spenden](#7-spenden)
+- [8. Changelog](#8-changelog)
+- [9. Lizenz](#9-lizenz)
 
 ## 1. Funktionsumfang
 
-   Direkte native Unterstützung des ELRO HE853 / AB600 USB-Stick um Aktoren auf Basis von 433Mhz zu steuern.  
-   Es werden zur Zeit folgende Schaltaktoren unterstützt:  
+   Direkte Unterstützung des ELRO HE853 / AB600 USB-Stick um Aktoren auf Basis von 433Mhz zu steuern.  
+   Es werden aktuell folgende Schaltaktoren unterstützt:  
     - ELRO (und baugleiche) mit DIP-Schaltern  
     - Intertechno  
     - REV und FLS 100 mit Dreh-Schaltern (RS => Rotary Switch)  
@@ -36,17 +36,16 @@ IPS-Modul für den ELRO HE853 / AB600 USB-Stick (433MHz-Geräte)
 
 ## 2. Voraussetzungen
 
-   - IPS 4.3 oder höher  
-   - Der USB-Stick HE853 bzw. AB600 von Elro.  
-   - Ein freie USB-Anschluss an dem System, wo IPS betrieben wird.  
+   * IPS 4.3 oder höher  
+   * Der USB-Stick HE853 bzw. AB600 von Elro.  
+   * Ein nicht belegter USB-Anschluss an dem System, wo IPS betrieben wird.  
 
 ## 3. Software-Installation
 
-**IPS 4.3:**  
-   Bei privater Nutzung: Über das 'Module-Control' in IPS folgende URL hinzufügen.  
-   `git://github.com/Nall-chan/Elro.git`  
-
+  Über den 'Module-Store' in IPS das Modul 'ONVIF' hinzufügen.  
    **Bei kommerzieller Nutzung (z.B. als Errichter oder Integrator) wenden Sie sich bitte an den Autor.**  
+   ![Module-Store](imgs/install.png) 
+
 
 ## 4. Einrichten der Instanzen in IPS
 
@@ -91,7 +90,7 @@ IPS-Modul für den ELRO HE853 / AB600 USB-Stick (433MHz-Geräte)
     @ELRO_SendSwitch(54727 /*[Hardware\ELRO DIP]*/ ,true);
 
     // Ausschalten mit Abfrage ob Befehl erfolgreich abgesetzt werden konnte
-    if (!@ELRO_SendSwitch(54727 /*[Hardware\ELRO DIP]*/ ,true)) die ("Konnte nicht einschalten.");
+    if (!@ELRO_SendSwitch(54727 /*[Hardware\ELRO DIP]*/ ,false)) die ("Konnte nicht einschalten.");
 ```
 
 
@@ -157,17 +156,19 @@ GUID der Instanzen (z.B. wenn Instanz per PHP angelegt werden soll):
 |   CodeOff   | string  |              |   Aus-Befehl bestehend aus 0, 1 und F    |
 |   Repeat    | integer |      2       | Anzahl wie häufig der Code gesendet wird |
 
-## 8. Anhang
-
-### Spenden:  
+## 7. Spenden
   
   Die Library ist für die nicht kommerzielle Nutzung kostenlos, Schenkungen als Unterstützung für den Autor werden hier akzeptiert:  
 
-<a href="https://www.paypal.com/donate?hosted_button_id=G2SLW2MEMQZH2" target="_blank"><img src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donate_LG.gif" border="0" /></a>
+  PayPal:  
+<a href="https://www.paypal.com/donate?hosted_button_id=G2SLW2MEMQZH2" target="_blank"><img src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donate_LG.gif" border="0" /></a>  
 
-### Changelog:
+  Wunschliste:  
+<a href="https://www.amazon.de/hz/wishlist/ls/YU4AI9AQT9F?ref_=wl_share" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" border="0" width="100"/></a>  
 
-**5.1:**  
+## 8. Changelog
+
+**5.2:**  
 Neu: Release für IPS 5.1 und den Module-Store  
 
 **5.00:**  
