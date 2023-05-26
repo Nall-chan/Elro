@@ -2,6 +2,9 @@
     "translations": {
         "de": {
             "Config address here:": "Adresse hier einstellen:",
+            "Intertechno Code (10 chars of '0', '1' and 'F'": "Intertechno Code (10 Zeichen aus '0', '1' und 'F'",
+            "ON Code (2 chars of '0', '1' and 'F'": "ON Code (2 Zeichen aus '0', '1' und 'F'",
+            "OFF Code (2 chars of '0', '1' and 'F'": "OFF Code (2 Zeichen aus '0', '1' und 'F'",
             "Repeat code": "Sende-Zyklen",
             "Instance has no active parent instance!": "Fehler keine aktive Parent Instanz!",
             "Error on transmit!": "Fehler beim Senden!",

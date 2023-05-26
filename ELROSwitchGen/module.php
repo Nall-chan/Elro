@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @copyright     2020 Michael Tröger
  * @license       https://creativecommons.org/licenses/by-nc-sa/4.0/ CC BY-NC-SA 4.0
  *
- * @version       5.2
+ * @version       5.21
  */
 require_once __DIR__ . '/../libs/ELROBase.php';  // ELROBase Klasse
 
@@ -21,13 +21,13 @@ require_once __DIR__ . '/../libs/ELROBase.php';  // ELROBase Klasse
  */
 class ELROSwitchGen extends ELROBase
 {
-    protected $on;
-    protected $off;
+    protected string $on;
+    protected string $off;
 
     /**
      * Interne Funktion des SDK.
      */
-    public function Create()
+    public function Create(): void
     {
         parent::Create();
         $this->RegisterPropertyString('Code', '0000000000');
@@ -37,32 +37,9 @@ class ELROSwitchGen extends ELROBase
     }
 
     /**
-     * Interne Funktion des SDK.
-     */
-    public function ApplyChanges()
-    {
-        if (preg_match('/^[01F]{10}$/', trim($this->ReadPropertyString('Code'))) !== 1) {
-            IPS_SetProperty($this->InstanceID, 'Code', '0000000000');
-        }
-        if (preg_match('/^[01F]{2}$/', trim($this->ReadPropertyString('CodeOn'))) !== 1) {
-            IPS_SetProperty($this->InstanceID, 'CodeOn', 'FF');
-        }
-        if (preg_match('/^[01F]{2}$/', trim($this->ReadPropertyString('CodeOff'))) !== 1) {
-            IPS_SetProperty($this->InstanceID, 'CodeOff', 'F0');
-        }
-
-        if (IPS_HasChanges($this->InstanceID)) {
-            echo 'Config invalid';
-            IPS_ApplyChanges($this->InstanceID);
-        } else {
-            parent::ApplyChanges();
-        }
-    }
-
-    /**
      * Liefert die Adresse des Aktor im Hex-Format.
      */
-    protected function GetAddress()
+    protected function GetAddress(): string
     {
         $on = trim($this->ReadPropertyString('CodeOn'));
         $this->on = $this->ToHex($on);
@@ -79,7 +56,7 @@ class ELROSwitchGen extends ELROBase
     /**
      * Liefert den Hex-Code von einem Intertechno Code.
      */
-    private function ToHex($Char)
+    private function ToHex($Char): string
     {
         switch ($Char) {
             case '00':

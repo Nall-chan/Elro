@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @copyright     2020 Michael Tröger
  * @license       https://creativecommons.org/licenses/by-nc-sa/4.0/ CC BY-NC-SA 4.0
  *
- * @version       5.2
+ * @version       5.21
  */
 require_once __DIR__ . '/../libs/ELROBase.php';  // ELROBase Klasse
 
@@ -21,13 +21,13 @@ require_once __DIR__ . '/../libs/ELROBase.php';  // ELROBase Klasse
  */
 class ELROSwitchDIP extends ELROBase
 {
-    protected $on = '5';
-    protected $off = '4';
+    protected string $on = '5';
+    protected string $off = '4';
 
     /**
      * Interne Funktion des SDK.
      */
-    public function Create()
+    public function Create(): void
     {
         parent::Create();
         $this->RegisterPropertyBoolean('Bit0', false);
@@ -46,7 +46,7 @@ class ELROSwitchDIP extends ELROBase
     /**
      * Liefert die Adresse des Aktor im Hex-Format.
      */
-    protected function GetAddress()
+    protected function GetAddress(): string
     {
         $Adresse = 0;
         if (!$this->ReadPropertyBoolean('Bit8')) {

@@ -1,6 +1,6 @@
 [![SDK](https://img.shields.io/badge/Symcon-PHPModul-red.svg)](https://www.symcon.de/service/dokumentation/entwicklerbereich/sdk-tools/sdk-php/)
-[![Version](https://img.shields.io/badge/Modul%20Version-5.2-blue.svg)]()
-[![Version](https://img.shields.io/badge/Symcon%20Version-5.1%20%3E-green.svg)](https://www.symcon.de/forum/threads/30857-IP-Symcon-5-1-%28Stable%29-Changelog)  
+[![Version](https://img.shields.io/badge/Modul%20Version-5.21-blue.svg)]()
+![Version](https://img.shields.io/badge/Symcon%20Version-7.0%20%3E-green.svg)  
 [![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-green.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![Check Style](https://github.com/Nall-chan/Elro/workflows/Check%20Style/badge.svg)](https://github.com/Nall-chan/Elro/actions)
 [![Run Tests](https://github.com/Nall-chan/Elro/workflows/Run%20Tests/badge.svg)](https://github.com/Nall-chan/Elro/actions)  
@@ -167,6 +167,9 @@ GUID der Instanzen (z.B. wenn Instanz per PHP angelegt werden soll):
 <a href="https://www.amazon.de/hz/wishlist/ls/YU4AI9AQT9F?ref_=wl_share" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" border="0" width="100"/></a>  
 
 ## 8. Changelog
+
+**5.21:**  
+Neu: Release für IPS 7.0  
 
 **5.2:**  
 Neu: Release für IPS 5.1 und den Module-Store  

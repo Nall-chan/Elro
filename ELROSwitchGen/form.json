@@ -7,17 +7,20 @@
         {
             "name": "Code",
             "type": "ValidationTextBox",
-            "caption": "Intertechno Code"
+            "validate": "^[01Ff]{10}$",
+            "caption": "Intertechno Code (10 chars of '0', '1' and 'F'"
         },
         {
             "name": "CodeOn",
             "type": "ValidationTextBox",
-            "caption": "ON Code"
+            "validate": "^[01Ff]{2}$",
+            "caption": "ON Code (2 chars of '0', '1' and 'F'"
         },
         {
             "name": "CodeOff",
             "type": "ValidationTextBox",
-            "caption": "OFF Code"
+            "validate": "^[01Ff]{2}$",
+            "caption": "OFF Code (2 chars of '0', '1' and 'F'"
         },
         {
             "name": "Repeat",

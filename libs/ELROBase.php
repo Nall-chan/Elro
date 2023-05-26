@@ -11,23 +11,23 @@ declare(strict_types=1);
  * @copyright     2020 Michael Tröger
  * @license       https://creativecommons.org/licenses/by-nc-sa/4.0/ CC BY-NC-SA 4.0
  *
- * @version       5.2
+ * @version       5.21
  */
 
 /**
  * ELROBase ist die Basis-Klasse für 433Mhz Funksteckdose, welche über den HE583 gesteuert wird.
  * Erweitert ipsmodule.
  */
-abstract class ELROBase extends IPSModule
+abstract class ELROBase extends IPSModuleStrict
 {
-    protected $on;
-    protected $off;
-    protected $Address;
+    protected string $on;
+    protected string $off;
+    protected string $Address;
 
     /**
      * Interne Funktion des SDK.
      */
-    public function Create()
+    public function Create(): void
     {
         parent::Create();
         $this->RegisterVariableBoolean('STATE', 'STATE', '~Switch');
@@ -38,7 +38,7 @@ abstract class ELROBase extends IPSModule
     /**
      * Interne Funktion des SDK.
      */
-    public function ApplyChanges()
+    public function ApplyChanges(): void
     {
         parent::ApplyChanges();
         $this->SetReceiveDataFilter('.9999999999.');
@@ -83,13 +83,14 @@ abstract class ELROBase extends IPSModule
     /**
      * Interne Funktion des SDK.
      */
-    public function RequestAction($Ident, $Value)
+    public function RequestAction(string $Ident, mixed $Value): void
     {
         if ($Ident == 'STATE') {
-            return $this->SendSwitch($Value);
+            $this->SendSwitch($Value);
+            return;
         }
         trigger_error($this->Translate('Invalid Ident.'), E_USER_NOTICE);
-        return false;
+        return;
     }
 
     //################# PUBLIC
@@ -97,19 +98,19 @@ abstract class ELROBase extends IPSModule
     /**
      * Schaltet den Aktor ein oder aus und führt die Statusvariable nach.
      */
-    public function SendSwitch(bool $State)
+    public function SendSwitch(bool $State): bool
     {
         if (!$this->HasActiveParent()) {
             trigger_error($this->Translate('Instance has no active parent instance!'), E_USER_NOTICE);
         } else {
             $this->Address = $this->GetAddress();
-            if ((bool) $State) {
+            if ($State) {
                 $SendState = $this->on;
             } else {
                 $SendState = $this->off;
             }
             if ($this->DoSend($SendState)) {
-                $this->SetValue('STATE', (bool) $State);
+                $this->SetValue('STATE', $State);
                 return true;
             } else {
                 trigger_error($this->Translate('Error on transmit!'), E_USER_NOTICE);
@@ -123,7 +124,7 @@ abstract class ELROBase extends IPSModule
     /**
      * Sendet das Telegramm an den HE853.
      */
-    protected function DoSend($Value)
+    protected function DoSend(string $Value): bool
     {
         $i = 0;
         $Repeat = $this->ReadPropertyInteger('Repeat');
@@ -139,7 +140,7 @@ abstract class ELROBase extends IPSModule
                     $this->SendDataToParent(json_encode([
                         'DataID'  => '{4A550680-80C5-4465-971E-BBF83205A02B}',
                         'EventID' => 0,
-                        'Buffer'  => utf8_encode($Data)]));
+                        'Buffer'  => bin2hex($Data)]));
                 } catch (Exception $ex) {
                     return false;
                 }
@@ -154,7 +155,7 @@ abstract class ELROBase extends IPSModule
      *
      * @abstract
      */
-    abstract protected function GetAddress();
+    abstract protected function GetAddress(): string;
 }
 
 /* @} */
