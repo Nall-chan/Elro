@@ -1,10 +1,13 @@
 [![SDK](https://img.shields.io/badge/Symcon-PHPModul-red.svg)](https://www.symcon.de/service/dokumentation/entwicklerbereich/sdk-tools/sdk-php/)
-[![Version](https://img.shields.io/badge/Modul%20Version-5.21-blue.svg)]()
-![Version](https://img.shields.io/badge/Symcon%20Version-7.0%20%3E-green.svg)  
+[![Module Version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FNall-chan%2FElro%2Frefs%2Fheads%2Fmaster%2Flibrary.json&query=%24.version&label=Modul%20Version&color=blue)
+]()
+[![Symcon Version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FNall-chan%2FElro%2Frefs%2Fheads%2Fmaster%2Flibrary.json&query=%24.compatibility.version&suffix=%3E&label=Symcon%20Version&color=green)
+](https://www.symcon.de/de/service/dokumentation/installation/migrationen/v80-v81-q3-2025/)  
 [![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-green.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-[![Check Style](https://github.com/Nall-chan/Elro/workflows/Check%20Style/badge.svg)](https://github.com/Nall-chan/Elro/actions)
-[![Run Tests](https://github.com/Nall-chan/Elro/workflows/Run%20Tests/badge.svg)](https://github.com/Nall-chan/Elro/actions)  
-[![Spenden](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donate_SM.gif)](#7-spenden)  
+[![Check Style](https://github.com/Nall-chan/Elro/workflows/Check%20Style/badge.svg)](https://github.com/Nall-chan/Elro/actions) [![Run Tests](https://github.com/Nall-chan/Elro/workflows/Run%20Tests/badge.svg)](https://github.com/Nall-chan/Elro/actions)  
+[![PayPal.Me](https://img.shields.io/badge/PayPal-Me-lightblue.svg)](#3-spenden)
+[![Wunschliste](https://img.shields.io/badge/Wunschliste-Amazon-ff69fb.svg)](#3-spenden)  
+
 
 # Elro <!-- omit in toc -->  
 IPS-Modul für den ELRO HE853 / AB600 USB-Stick (433MHz-Geräte)  
@@ -36,9 +39,9 @@ IPS-Modul für den ELRO HE853 / AB600 USB-Stick (433MHz-Geräte)
 
 ## 2. Voraussetzungen
 
-   * IPS 4.3 oder höher  
-   * Der USB-Stick HE853 bzw. AB600 von Elro.  
-   * Ein nicht belegter USB-Anschluss an dem System, wo IPS betrieben wird.  
+   * IP-Symcon 8.1 oder neuer  
+   * Der USB-Stick HE853 bzw. AB600 von Elro  
+   * Ein nicht belegter USB-Anschluss an dem System, wo IPS betrieben wird  
 
 ## 3. Software-Installation
 
@@ -161,15 +164,15 @@ GUID der Instanzen (z.B. wenn Instanz per PHP angelegt werden soll):
   Die Library ist für die nicht kommerzielle Nutzung kostenlos, Schenkungen als Unterstützung für den Autor werden hier akzeptiert:  
 
   PayPal:  
-<a href="https://www.paypal.com/donate?hosted_button_id=G2SLW2MEMQZH2" target="_blank"><img src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donate_LG.gif" border="0" /></a>  
+[![PayPal.Me](https://img.shields.io/badge/PayPal-Me-lightblue.svg)](https://paypal.me/Nall4chan)  
 
   Wunschliste:  
-<a href="https://www.amazon.de/hz/wishlist/ls/YU4AI9AQT9F?ref_=wl_share" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" border="0" width="100"/></a>  
+[![Wunschliste](https://img.shields.io/badge/Wunschliste-Amazon-ff69fb.svg)](https://www.amazon.de/hz/wishlist/ls/YU4AI9AQT9F?ref_=wl_share)  
 
 ## 8. Changelog
 
 **5.21:**  
-Neu: Release für IPS 7.0  
+Neu: Release für IPS 8.1  
 
 **5.2:**  
 Neu: Release für IPS 5.1 und den Module-Store  

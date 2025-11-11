@@ -30,7 +30,15 @@ abstract class ELROBase extends IPSModuleStrict
     public function Create(): void
     {
         parent::Create();
-        $this->RegisterVariableBoolean('STATE', 'STATE', '~Switch');
+        $this->RegisterVariableBoolean('STATE', 'STATE', [
+            'USE_ICON_FALSE' => false,
+            'GLOW_COLOR'     => 16771899,
+            'GLOW_INTENSITY' => 50,
+            'ICON_FALSE'     => 'power-off',
+            'USAGE_TYPE'     => 0,
+            'ICON_TRUE'      => 'power-off',
+            'PRESENTATION'   => VARIABLE_PRESENTATION_SWITCH
+        ]);
         $this->EnableAction('STATE');
         $this->ConnectParent('{E6D7692A-7F4C-441D-827B-64062CFE1C02}');
     }
