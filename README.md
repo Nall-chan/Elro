@@ -5,8 +5,8 @@
 ](https://www.symcon.de/de/service/dokumentation/installation/migrationen/v80-v81-q3-2025/)  
 [![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-green.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![Check Style](https://github.com/Nall-chan/Elro/workflows/Check%20Style/badge.svg)](https://github.com/Nall-chan/Elro/actions) [![Run Tests](https://github.com/Nall-chan/Elro/workflows/Run%20Tests/badge.svg)](https://github.com/Nall-chan/Elro/actions)  
-[![PayPal.Me](https://img.shields.io/badge/PayPal-Me-lightblue.svg)](#3-spenden)
-[![Wunschliste](https://img.shields.io/badge/Wunschliste-Amazon-ff69fb.svg)](#3-spenden)  
+[![PayPal.Me](https://img.shields.io/badge/PayPal-Me-lightblue.svg)](#7-spenden)
+[![Wunschliste](https://img.shields.io/badge/Wunschliste-Amazon-ff69fb.svg)](#7-spenden)  
 
 
 # Elro <!-- omit in toc -->  
