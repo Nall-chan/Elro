@@ -6,11 +6,11 @@
 [![PayPal.Me](https://img.shields.io/badge/PayPal-Me-lightblue.svg)](#7-spenden)
 [![Wunschliste](https://img.shields.io/badge/Wunschliste-Amazon-ff69fb.svg)](#7-spenden)  
 
-
 # Elro <!-- omit in toc -->  
-IPS-Modul für den ELRO HE853 / AB600 USB-Stick (433MHz-Geräte)  
 
-## Inhaltsverzeichnis <!-- omit in toc -->   
+Symcon Modul für den ELRO HE853 / AB600 USB-Stick (433MHz-Geräte)  
+
+## Inhaltsverzeichnis <!-- omit in toc -->  
 
 - [1. Funktionsumfang](#1-funktionsumfang)
 - [2. Voraussetzungen](#2-voraussetzungen)
@@ -37,16 +37,15 @@ IPS-Modul für den ELRO HE853 / AB600 USB-Stick (433MHz-Geräte)
 
 ## 2. Voraussetzungen
 
-   * IP-Symcon 8.1 oder neuer  
-   * Der USB-Stick HE853 bzw. AB600 von Elro  
-   * Ein nicht belegter USB-Anschluss an dem System, wo IPS betrieben wird  
+- Symcon 8.1 oder neuer  
+- Der USB-Stick HE853 bzw. AB600 von Elro  
+- Ein nicht belegter USB-Anschluss an dem System, wo IPS betrieben wird  
 
 ## 3. Software-Installation
 
-  Über den 'Module-Store' in IPS das Modul 'ONVIF' hinzufügen.  
+  Über den 'Module-Store' in Symcon das Modul 'ELRO' hinzufügen.  
    **Bei kommerzieller Nutzung (z.B. als Errichter oder Integrator) wenden Sie sich bitte an den Autor.**  
-   ![Module-Store](imgs/install.png) 
-
+   ![Module-Store](imgs/install.png)  
 
 ## 4. Einrichten der Instanzen in IPS
 
@@ -77,23 +76,23 @@ IPS-Modul für den ELRO HE853 / AB600 USB-Stick (433MHz-Geräte)
    **Intertechno Generic:**  
     - Der Code ist immer 10stellig bestehend aus 0 1 oder F einzutragen.  
     - Für ON und OFF immer zweistellig.  
-    - Codes:[Intertechno Code Berechnung](https://wiki.fhem.de/wiki/Intertechno_Code_Berechnung)  
+    - Codes: [Intertechno Code Berechnung](https://wiki.fhem.de/wiki/Intertechno_Code_Berechnung)  
 
 ## 5. PHP-Befehlsreferenz
 
 ```php
     boolean ELRO_SendSwitch(integer $InstanceID, boolean $State);
-```
+```  
+
    **Beispiele:**  
 
 ```php
-    // Einschalten.. nur so (E_Warning bei Fehler @ verwenden!)
-    @ELRO_SendSwitch(54727 /*[Hardware\ELRO DIP]*/ ,true);
+    // Einschalten, bei Fehler Warnung ausgeben.  
+    ELRO_SendSwitch(54727 /*[Hardware\ELRO DIP]*/ ,true);
 
     // Ausschalten mit Abfrage ob Befehl erfolgreich abgesetzt werden konnte
     if (!@ELRO_SendSwitch(54727 /*[Hardware\ELRO DIP]*/ ,false)) die ("Konnte nicht einschalten.");
 ```
-
 
 ## 6. Parameter / Modul-Infos
 
@@ -169,31 +168,31 @@ GUID der Instanzen (z.B. wenn Instanz per PHP angelegt werden soll):
 
 ## 8. Changelog
 
-**5.21:**  
-Neu: Release für IPS 8.1  
+**Version 5.21:**  
+Neu: Release für Symcon 8.1  
 
-**5.2:**  
+**Version 5.2:**  
 Neu: Release für IPS 5.1 und den Module-Store  
 
-**5.00:**  
+**Version 5.00:**  
 Neu: Modul intern umgebaut  
 Fix: Konfigurationsformulare nutzen durchgängig caption als Ersatz für label.  
 
-**2.04:**  
+**Version 2.04:**  
 Fixes für IPS 5.0  
 
-**2.03:**  
+**Version 2.03:**  
 Neu: Übersetzungen für IPS 4.3
 
-**2.02:**  
+**Version 2.02:**  
 Neu: Intertechno Generic Gerät  
 Fix: DIP Schalter wurden falsch ausgewertet.  
-Fix: RS2 Instanz (REV Schalter) wurde Nummer 3 falsch ausgewertet. 
+Fix: RS2 Instanz (REV Schalter) wurde Nummer 3 falsch ausgewertet.  
 
-**2.01:**  
+**Version 2.01:**  
 Fix: Workaround für IPS 4  
 
-**2.00:**  
+**Version 2.00:**  
 Neu: Umsetzung für IPS 4  
 
 ## 9. Lizenz
